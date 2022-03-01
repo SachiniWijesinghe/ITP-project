@@ -1,8 +1,8 @@
 Please go under edit and edit this file as needed for your project
 
-# Project Name - 
-# Batch - 
-### Group Leader - IT20212232 - Mr. Asiri Gamage (asiriRepos)
+# Project Name - Online Shopping Store
+# Batch - 02
+### Group Leader - IT20638740 - Mr. Supun Premachandra (SupunPremachandra)
 ### Member 2 - 
 ### Member 3 - 
 ### Member 4 - 
