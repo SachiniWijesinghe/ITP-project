@@ -8,7 +8,7 @@ Please go under edit and edit this file as needed for your project
 ### Member 4 - IT20642150 - Lakshan J.A.T 
 ### Member 5 - IT20642914 - Gamage B.G.A.C 
 ### Member 6 - IT20637750 - Kaushalya W.R.M.K 
-### Member 7 - IT20641092 - Wijesinha W.S.S 
+### Member 7 - IT20641092 - Wijesinha W.S.S (SachiniWijesinghe)
 ### Member 8 - IT20621810 - Wimalasiri W.R.P 
 
 #### Brief Description of Project - Super fashion is a clothing shop. They have all types of clothes for both men and women, and for
