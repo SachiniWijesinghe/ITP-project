@@ -11,8 +11,8 @@ Please go under edit and edit this file as needed for your project
 ### Member 7 - IT20641092 - Wijesinha W.S.S (SachiniWijesinghe)
 ### Member 8 - IT20621810 - Wimalasiri W.R.P (IT20621810)
 
-#### Brief Description of Project - Super fashion is a clothing shop. They have all types of clothes for both men and women, and for
-kids. They want to have a online store other than their physical store because they want to explore
+#### Brief Description of Project - Super fashion is a clothing shop. They have all types of clothes for both men and women, and for kids. 
+They want to have a online store other than their physical store because they want to explore
 their designs and fashions of their clothes all over the Sri Lanka. 
 #### Technologies used - HTML, Bootstrap , JavaScript , PHP - Laravel framework
 
