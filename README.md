@@ -17,4 +17,3 @@ their designs and fashions of their clothes all over the Sri Lanka.
 #### Technologies used - HTML, Bootstrap , JavaScript , PHP - Laravel framework
 
 Note - The student's github account should be given in brackets e.g. (asiriRepos), this ideally should be your student id 
-
