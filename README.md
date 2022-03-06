@@ -4,7 +4,7 @@ Please go under edit and edit this file as needed for your project
 # Batch - 02
 ### Group Leader - IT20638740 - Premachandra G.S (SupunPremachandra)
 ### Member 2 - IT20637446 - Anuradha R.G.G 
-### Member 3 - IT20637064 - Anuththara R.M.C 
+### Member 3 - IT20637064 - Anuththara R.M.C (Chathi19)
 ### Member 4 - IT20642150 - Lakshan J.A.T (LAKSHAN-JAT)
 ### Member 5 - IT20642914 - Gamage B.G.A.C (avishka05)
 ### Member 6 - IT20637750 - Kaushalya W.R.M.K 
