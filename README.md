@@ -9,7 +9,7 @@ Please go under edit and edit this file as needed for your project
 ### Member 5 - IT20642914 - Gamage B.G.A.C (avishka05)
 ### Member 6 - IT20637750 - Kaushalya W.R.M.K (kavindurmkk)
 ### Member 7 - IT20641092 - Wijesinha W.S.S (SachiniWijesinghe)
-### Member 8 - IT20621810 - Wimalasiri W.R.P (IT20621810)
+### Member 8 - IT20621810 - Wimalasiri W.R.P (RidmiPiumika)
 
 #### Brief Description of Project - Super fashion is a clothing shop. They have all types of clothes for both men and women, and for kids. 
 They want to have a online store other than their physical store because they want to explore
