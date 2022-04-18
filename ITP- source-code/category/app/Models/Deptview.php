@@ -9,4 +9,5 @@ class Deptview extends Model
 
 {protected $table="department";
     use HasFactory;
+    
 }

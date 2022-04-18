@@ -20,13 +20,20 @@ use App\Http\Controllers\DepartmentController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/cat', function () {
-    $Dvalues =department::all();
+//Route::get('/Department', function () {
+        // $Data =department::all();
 //      return view('Department',compact('$Dvalues','Dvalues'));
-    return View::make('Department')->with('Dvalues', $Dvalues);
-});
+  //  return View::make('Department')->with('Data', $Data);
 
-Route::post('/department',[DepartmentController::class,'store']);
+
+//})
+Route::get('/Department',[DepartmentController::class,'show']);
+
+Route::post('/departmentinsert',[DepartmentController::class,'store']); // insert link
+Route::get('click_delete/{idDepartment}',[DepartmentController::class,'destroy']);
+Route::get('click_edit/{idDepartment}',[DepartmentController::class,'showd']);
+Route::post('/Depatup',[DepartmentController::class,'update']);
+
 
 
 

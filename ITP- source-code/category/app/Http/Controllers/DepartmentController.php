@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\department;
 use Illuminate\Http\Request;
+use View;
 
 class DepartmentController extends Controller
 {
@@ -55,10 +56,19 @@ class DepartmentController extends Controller
      * @param  \App\Models\department  $department
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Request $request )
     {
-      $Data= department::all();
-      return view('Department',['department'=>$Data]);
+      $search= $request['search']??"";
+      if($search !=null){
+          $Data=department::where('Description','like',"%$search%")->get();
+
+      }else{
+            $Data=department::all();
+      }
+     
+      
+     return View::make('Department')->with('Data', $Data);
+
 
     }
 
@@ -68,11 +78,12 @@ class DepartmentController extends Controller
      * @param  \App\Models\department  $department
      * @return \Illuminate\Http\Response
      */
-    public function edit(department $department)
-    {
-        //
-    }
-
+    //public function edit(department $idDepathrtment)
+  //  {                  //tabelname
+       // $Eddepartment= department:: select('select * from Department where idDepartment=?',[$idDepartment]);
+       // return view('DepartmentEdit',['department'=>$Eddepartmen]);
+    //}
+    
     /**
      * Update the specified resource in storage.
      *
@@ -80,19 +91,41 @@ class DepartmentController extends Controller
      * @param  \App\Models\department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, department $department)
+    public function showd($idDepartment)
     {
-        //
-    }
+       // return department::find($idDepartment);
+        
+        $data=department::find($idDepartment);
+        return view ('Departmentupdate',['data'=>$data]);
 
+    }
+    public function update(Request $req)
+    {
+        
+       $data=department::find($req->idDepartment);
+        $data->Description=$req->Description;
+       $data->save();
+       return redirect('Department'); 
+
+        
+      
+
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(department $department)
+    public function destroy($idDepartment)
     {
         //
+        $data=department::find($idDepartment);
+        $data->delete();
+        return redirect('Department');
+
+    }
+    public function search_dep(){
+        return view('search_dep');
     }
 }

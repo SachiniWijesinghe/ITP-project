@@ -22,7 +22,7 @@
             </div>
 
             <div class="card-body">
-                <form id="Department" action="/department" method="post" enctype="multipart/form-data">
+                <form id="Department" action="/departmentinsert" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label>Department name</label>
@@ -33,7 +33,7 @@
 
 
 
-                    <button type="submit"  name="save_cate" id="save_cate" class="btn btn-primary"> Save Category </button>
+                    <button type="submit"  name="save_cate" id="save_cate" class="btn btn-primary"> Save Department </button>
 
                 </form>
             </div>
@@ -47,57 +47,20 @@
 
 </div>
 
-<div class="modal fade" id="update_cate_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update Category Details</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="database/post.php" method="POST" enctype="multipart/form-data">
-
-                    <div class="modal-body">
-
-                            <input type="text" id="cate_id" name="cate_id" hidden>
-                            <div class="form-group">
-                                <label>Category Name</label>
-                                <input type="text" name="u_c_name" id="u_c_name"  class="form-control"
-                                       placeholder="Enter Category Name">
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea id="u_des" name="u_des" rows="4" cols="50" class="form-control">
-                                </textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Image</label>
-                                <input type="file" name="file" id="file" class="form-control">
-                            </div>
-
-
-
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="update_category" id="update_category" class="btn btn-primary">Update Category</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
 <div class="container-fluid">
 
-    <!-- DataTales Example -->
+    <!-- Data -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">View All Categories
 
             </h6>
+<!--  search  box -->
+            <form action="/Department">  
+           <input type="search" id="search" name="search" placeholder="search by name"  />
+            <input type="submit">
+            </form>
+            
         </div>
 
         <div class="card-body">
@@ -109,17 +72,25 @@
                     <tr class="btn-dark">
                         <th>ID</th>
                         <th>Description </th>
+                        <th>Edit </th>
+                        <th>Delete </th>
 
                     </tr>
                     </thead>
                     <tbody>
-@foreach($Dvalues as $Dvalue)
+@foreach($Data as $Dvalue)
     <tr>
         <td>
             {{$Dvalue->idDepartment}}
         </td>
-        <td>
+        <td> 
             {{$Dvalue->Description}}
+        </td>
+        <td>
+            <a href="click_edit/{{ $Dvalue->idDepartment}}"class="btn btn-success">Edit</a>
+        </td>
+        <td>
+            <a href="click_delete/{{ $Dvalue->idDepartment}}"class="btn btn-danger">Delete</a>
         </td>
 
     </tr>
@@ -130,6 +101,9 @@
                     <tr class="btn-dark">
                         <th>ID</th>
                         <th>Description </th>
+                        <th>Edit </th>
+                        <th>Delete </th>
+
 
                     </tr>
                     </tfoot>

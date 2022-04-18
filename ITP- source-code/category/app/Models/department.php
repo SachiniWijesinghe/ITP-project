@@ -11,4 +11,5 @@ class department extends Model
     protected $table="department";
     protected $primaryKey="idDepartment";
     public $timestamps=false;
+    
 }
