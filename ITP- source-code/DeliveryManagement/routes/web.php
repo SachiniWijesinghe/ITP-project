@@ -67,7 +67,7 @@ Route::POST('/SaveIssueDeliveryFromSearchFile',[App\Http\Controllers\IssueDelive
 
 
 /////////////////////////////////////////////////////////////////////////////////
-
+//pending deliveries
 
 Route::get('/viewPendingDel',[IssueDeliveryController::class,'pending']);  //viewing part
 //for edit  id eken data form ekt ghn pennanna
@@ -77,3 +77,12 @@ Route::get('editpending/{id}',[IssueDeliveryController::class,'editpendingX']); 
 Route::POST('/editpending' , [IssueDeliveryController::class,'StoreEditedPendingData']);
 //     me dn inna thana    //me yana thana
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+//report
+Route::get('/searchDayForReport',[OrderController::class,'searchOrderReport'])->name('web.searchDayForReport');
+
+
+//test
+Route::get('Test/',[OrderController::class,'Test']);
