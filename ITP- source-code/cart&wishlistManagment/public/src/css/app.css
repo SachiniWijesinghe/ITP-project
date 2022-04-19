@@ -1,0 +1,27 @@
+.price{
+    font-weight: bold;
+    font-size: 16px;
+    color: darkgoldenrod;
+}
+
+
+
+a.itemName:link { text-decoration:none; color:black;}
+a.itemName:visited {text-decoration:none; color:black;}
+a.itemName:hover {text-decoration:none; color:darkgoldenrod;}
+
+a.btn{
+    background-color: black;
+}
+a.btn:hover{
+    background-color: darkgoldenrod;
+    border-color: darkgoldenrod;
+}
+
+
+
+
+
+
+
+
