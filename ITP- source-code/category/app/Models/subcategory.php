@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Deptview extends Model
-
-{protected $table="department";
+class subcategory extends Model
+{
     use HasFactory;
+    protected $table="subcategory";
+    protected $primaryKey="idSubcategory";
+    public $timestamps=false;
     
 }
