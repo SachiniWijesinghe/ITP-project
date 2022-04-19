@@ -2,10 +2,11 @@
 
 use App\Models\department;
 use App\Models\category;
+use App\Models\subcategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\SubCategoryController;
 
 
 /*
@@ -42,6 +43,11 @@ Route::get('click_deletec/{idCategory}',[CategoryController::class,'destroy']);
 Route::get('click_editc/{idCategory}',[CategoryController::class,'showc']);
 Route::post('/Catupd',[CategoryController::class,'update']);
 
+Route::get('/Subcategory',[SubCategoryController::class,'show']);
+Route::post('/subcategorytinsert',[SubCategoryController::class,'store']);
+Route::get('click_deletes/{idSubcategory}',[SubCategoryController::class,'destroy']);
+Route::get('click_edits/{idSubcategory}',[SubCategoryController::class,'shows']);
+Route::post('/subCatupd',[SubCategoryController::class,'update1']);
 
 
 
