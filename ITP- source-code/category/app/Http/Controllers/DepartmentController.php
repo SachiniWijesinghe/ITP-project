@@ -102,7 +102,7 @@ class DepartmentController extends Controller
     public function update(Request $req)
     {
         
-       $data=department::find($req->idDepartment);
+        $data=department::find($req->idDepartment);
         $data->Description=$req->Description;
        $data->save();
        return redirect('Department'); 
@@ -125,7 +125,5 @@ class DepartmentController extends Controller
         return redirect('Department');
 
     }
-    public function search_dep(){
-        return view('search_dep');
-    }
+    
 }

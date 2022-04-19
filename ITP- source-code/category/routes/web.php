@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\department;
+use App\Models\category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\CategoryController;
 
 
 
@@ -33,6 +35,14 @@ Route::post('/departmentinsert',[DepartmentController::class,'store']); // inser
 Route::get('click_delete/{idDepartment}',[DepartmentController::class,'destroy']);
 Route::get('click_edit/{idDepartment}',[DepartmentController::class,'showd']);
 Route::post('/Depatup',[DepartmentController::class,'update']);
+
+Route::get('/Category',[CategoryController::class,'show']);
+Route::post('/categorytinsert',[CategoryController::class,'store']);
+Route::get('click_deletec/{idCategory}',[CategoryController::class,'destroy']);
+Route::get('click_editc/{idCategory}',[CategoryController::class,'showc']);
+Route::post('/Catupd',[CategoryController::class,'update']);
+
+
 
 
 
