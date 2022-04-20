@@ -3,10 +3,12 @@
 use App\Models\department;
 use App\Models\category;
 use App\Models\subcategory;
+use App\Models\size;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\SizeController;
 
 
 /*
@@ -49,7 +51,8 @@ Route::get('click_deletes/{idSubcategory}',[SubCategoryController::class,'destro
 Route::get('click_edits/{idSubcategory}',[SubCategoryController::class,'shows']);
 Route::post('/subCatupd',[SubCategoryController::class,'update1']);
 
-
-
-
-
+Route::get('/Size',[SizeController::class,'show']);
+Route::post('/sizeinsert',[SizeController::class,'store']);
+Route::get('click_delete2/{idSize}',[SizeController::class,'destroy']);
+Route::get('click_edit2/{idSize}',[SizeController::class,'shows']);
+Route::post('/Sizeup',[SizeController::class,'update2']);
