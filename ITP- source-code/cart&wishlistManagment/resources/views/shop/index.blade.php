@@ -20,8 +20,9 @@
                         <div class="clearfix">
                             <div class="pull-left price">LKR {{$productChunk->price}}</div>
                             <a href="/addToCart/{{$productChunk->id}}" class="btn btn-dark pull-right" role="button">Add To Cart</a></p>
-                        </div>
 
+                        </div>
+                        <a href="/addToWishlist/{{$productChunk->id}}" class="btn btn-dark pull-right" role="button">Wishlist</a></p>
                     </div>
                 </div>
             </div>
