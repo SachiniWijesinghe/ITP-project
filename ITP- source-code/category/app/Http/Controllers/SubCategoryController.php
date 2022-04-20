@@ -85,9 +85,6 @@ class SubCategoryController extends Controller
 
 
 
-    public function search_dep(){
-        return view('search_dep');
-    }
 
 
 
