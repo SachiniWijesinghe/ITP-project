@@ -319,9 +319,9 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{"/report"}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Delivery Charges</p>
+                                    <p>Report</p>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -331,13 +331,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{"/viewPendingDel"}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Pending Deliveries</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href={{"/viewallissueDelivery"}} class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>View All Deliveries</p>
                                 </a>
@@ -345,7 +345,7 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Delivery Confirmation</p>
+                                    <p>Delivery Charges</p>
                                 </a>
                             </li>
                         </ul>
@@ -368,17 +368,8 @@
     <!-- /.sidebar -->
 
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>Customers</h1>
-                    </div>
-                </div>
-            </div>
-            <!-- /.container-fluid -->
-        </section>
+    
+     
 
 <!----------------------------------mycode---------------------------------------------------------------------------------->
       
@@ -386,8 +377,10 @@
 <div class="container">
 
 <div class="text-container">
-    <h1>Search Order</h1><br>
-    <a href ={{"/viewallissueDelivery"}} class="btn-success">View All deliveries</a>  <!--after issuing order we can see it in all delivery records-->
+    <br>
+   <center> <h1>Search Order</h1></center>
+    <hr>
+   <!-- <a href ={{"/viewallissueDelivery"}} class="btn-success">View All deliveries</a>  after issuing order we can see it in all delivery records-->
 
 </div>
 
@@ -397,7 +390,7 @@
 <br>
 
 <!--class="form-control"-->
-<input type="date" name="QorderedDate"   id="orderedDate"  style="width:400px;" required >
+<input type="date" name="QorderedDate"   id="orderedDate"  style="width:400px;height:40px;" required >
 
 <input type="submit" class="btn btn-primary" value="search" >
 
@@ -411,6 +404,7 @@
 
 
 <center><h1>searched results</h1><center>
+    <hr>
 <br>
 @if(isset($members))
 <table class="table">
@@ -451,19 +445,6 @@
 
 
 
-
-
-
-
-
-
-<footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.2.0
-            </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-        </footer>
-
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
@@ -483,7 +464,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
     <!-- Page specific script -->
+</footer>
 
-</div>
 </body>
 </html>
