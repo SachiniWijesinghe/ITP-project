@@ -22,3 +22,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/addToCart/{id}', [productController::class, 'getAddToCart']);
+Route::get('/RemoveCart/{id}', [productController::class, 'removeFromCart']);
+
+Route::get('/cart', function () {
+    return view('shop.cart');
+});
