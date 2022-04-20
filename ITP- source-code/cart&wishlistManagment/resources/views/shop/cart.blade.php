@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Cart ||Super Fashion
+    Cart || Super Fashion
 @endsection
 
 

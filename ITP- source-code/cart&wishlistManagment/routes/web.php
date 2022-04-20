@@ -21,6 +21,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
+Route::get('/addToWishlist/{id}', [productController::class, 'getAddToWishlist']);
+Route::get('/RemoveWislist/{id}', [productController::class, 'removeFromWishlist']);
+
+
 Route::get('/addToCart/{id}', [productController::class, 'getAddToCart']);
 Route::get('/RemoveCart/{id}', [productController::class, 'removeFromCart']);
 

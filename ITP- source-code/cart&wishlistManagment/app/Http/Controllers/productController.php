@@ -47,4 +47,27 @@ class productController extends Controller
         return view('shop.cart', ['product' => $cart->items,'Tot_amount'=>$tot_amount]);
 
     }
+
+    public function getAddToWishlist($id){
+        $username="chathini@gmail.com";
+
+        if (DB::table('wishlist')->where('Customer_idCustomer',$username)->exists()) {
+            if (DB::table('wishlist')->where('Item_idItem',$id)->exists()) {
+
+            }else{
+                DB::insert('insert into wishlist (Customer_idCustomer,Item_idItem) values(?,?)',[$username,$id]);
+            }
+        }else{
+            DB::insert('insert into wishlist (Customer_idCustomer,Item_idItem) values(?,?)',[$username,$id]);
+        }
+        $products=DB::select("select * from wishlist where Customer_idCustomer='$username'");
+        return view('shop.wishlist', ['product' => $products]);
+    }
+
+    public function removeFromWishlist($id){
+        $username="chathini@gmail.com";
+        DB::delete('delete from wishlist where Item_idItem = ? and Customer_idCustomer=?', [$id,$username]);
+        $products=DB::select("select * from wishlist where Customer_idCustomer='$username'");
+        return view('shop.wishlist', ['product' => $products]);
+    }
 }
