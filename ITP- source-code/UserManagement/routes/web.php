@@ -38,6 +38,7 @@ Route::get('/searchAdmin', function () {
 Route::view('addPrivileges','addAdminPrivileges');
 Route::post('addPrivileges',[AddPrivilegesController::class,'store']);
 Route::get('addPrivileges',[AddPrivilegesController::class,'show']);
+Route::get('click_delete/{id}',[AddPrivilegesController::class,'delete']);
 
 Auth::routes();
 

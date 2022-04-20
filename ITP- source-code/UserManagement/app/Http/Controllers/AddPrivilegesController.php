@@ -90,8 +90,10 @@ class AddPrivilegesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $data = Admin_Privilege::find($id);
+        $data->delete();
+        return redirect('addPrivileges');
     }
 }
