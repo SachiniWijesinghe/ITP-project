@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AddPrivilegesController;
+use App\Models\Admin_Privilege;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +31,13 @@ Route::get('/searchAdmin', function () {
     return view('searchAdmin');
 });
 
-Route::get('/addAdminPrivileges', function () {
-    return view('addAdminPrivileges');
-});
+// Route::get('/addAdminPrivileges', function () {
+//     return view('addAdminPrivileges');
+// });
+
+Route::view('addPrivileges','addAdminPrivileges');
+Route::post('addPrivileges',[AddPrivilegesController::class,'store']);
+Route::get('addPrivileges',[AddPrivilegesController::class,'show']);
 
 Auth::routes();
 

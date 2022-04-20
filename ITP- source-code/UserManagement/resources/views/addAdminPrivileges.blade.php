@@ -364,7 +364,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Search Admin</h1>
+                        <h1>Add Admin Privileges</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -385,11 +385,78 @@
                         <table>
                             <tr>
                                 <th>Role</th>
+                                <th>Add Admin</th>
+                                <th>Add Admin Privileges</th>
+                                <th>Add Items</th>
+                                <th>Add Category</th>
+                                <th>Delivery Management</th>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>
+                            <tbody>
+                                @foreach($data as $data1)
+                                <tr>
+                                    <td>
+                                        {{$data1->role}}
+                                    </td>
+                                    <td>
+                                        {{$data1->addAdmin}}
+                                    </td>
+                                    <td>
+                                        {{$data1->addAdminPrivileges}}
+                                    </td>
+                                    <td>
+                                        {{$data1->addItems}}
+                                    </td>
+                                    <td>
+                                        {{$data1->addCategory}}
+                                    </td>
+                                    <td>
+                                        {{$data1->deliveyManagement}}
+                                    </td>
+                                    <td>
+                                        <a href="click_edit/{{$data1->id}}" class="btn btn-success">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="click_delete/{{$data1->id}}" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
                         </table><br><br>
-                        <button type="submit" class="btn btn-success">Add Role</button>
+                        <button type="submit" class="btn btn-info" value="Button1" id="toggleVisibilityButton">Add Role</button>
+                        <script>
+                            document.getElementById("toggleVisibilityButton").addEventListener("click", function(button) {    
+                            if (document.getElementById("displaytable").style.display === "none")             document.getElementById("displaytable").style.display = "block";
+                            else document.getElementById("displaytable").style.display = "none";
+                            });
+                        </script><br><br><br>
+                        <form action = "addPrivileges" method="POST">
+                            @csrf
+                        <table  id="displaytable" style="display:none" width="100%" cellpadding="1" cellspacing="0">
+                            <tr>
+                                    <td class="lbl">Role</td>
+                                    <td class="lbl">Privileges</td>
+                                    <td class="lbl">Save</td>
+                                    </tr>
+                            <tr>
+                                    <td><input type="text" id="role" name="role" placeholder="Enter Role Name"></td>
+                                    <td>
+                                        <input type="checkbox" id="pv1" name="pv1">
+                                        <label>Add admin</label><br>
+                                        <input type="checkbox" id="pv2" name="pv2">
+                                        <label>Add Admin Privileges</label><br>
+                                        <input type="checkbox" id="pv3" name="pv3">
+                                        <label>Add Items</label><br>
+                                        <input type="checkbox" id="pv4" name="pv4">
+                                        <label>Add Category</label><br>
+                                        <input type="checkbox" id="pv5" name="pv5">
+                                        <label>Delivery Management</label><br><br>
+                                    </td>
+                                    <td><button type="submit" class="btn btn-primary">Save</button></td>
+                                    </tr>
+                        </table> 
+                        </form>
                     </div>
                 </div>
             </div>
