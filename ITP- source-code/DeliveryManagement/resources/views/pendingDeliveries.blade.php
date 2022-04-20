@@ -385,9 +385,7 @@
         
         <center><h1>View Pending Delivery Issues</h1><center>
 
-<a href ={{"/search"}} class="btn-success" style="text-decoration: none;">go to search -></a><br>
-<a href ={{"/issueDelivery"}} class="btn-success" style="text-decoration: none;">Add Delivery-></a>  <!--add additional diliveries--><br>
-<a href ={{"/viewallissueDelivery"}} class="btn-success " style="text-decoration: none;">view Pending Deliveries-></a><br> 
+
 <!--<a href ={{"/viewallissueDelivery"}} class="btn-success">View All deliveries</a>  -->
 <table class="table">
   <thead class="thead-dark">
@@ -415,8 +413,9 @@
       <td scope="col">{{$dataa['idCustomer']}}</td>
       <td scope="col">{{$dataa['idOrder']}}</td>
      
-      <td><a href ={{"delete/".$dataa['id']}} class="btn btn-primary" >Delete</a>
-          <a href ={{"editpending/".$dataa['id']}} class="btn btn-danger">Edit</a>
+      <td>                
+          <a href ={{"editpending/".$dataa['id']}} class="btn btn-primary">Edit</a>
+          <a href ={{"delete/".$dataa['id']}} class="btn btn-danger" >Delete</a>
           </td>
       </tr>
     @endforeach
