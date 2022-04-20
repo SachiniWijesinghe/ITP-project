@@ -29,9 +29,9 @@ class IssueDeliveryController extends Controller
     }
 
     public function show(){
-       // return view('viewallissueDelivery');                     view eka pennanawad blnna
-      // return IssueDelivery::all();                               ok fetch all data 
-//now return key and value paires   below IssueDelivery is model name
+    // return view('viewallissueDelivery');                     view eka pennanawad blnna
+    // return IssueDelivery::all();                               ok fetch all data 
+    //now return key and value paires   below IssueDelivery is model name
            $data = IssueDelivery::all();
            return view('viewallissueDelivery',['members'=>$data]);  //here key and value  member and $data.now our data is passed to blade file.view ekt pss wenwa
     }
