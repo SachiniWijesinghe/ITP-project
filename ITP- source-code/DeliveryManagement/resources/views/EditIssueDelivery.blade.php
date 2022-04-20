@@ -29,18 +29,18 @@
 <body  >
    <center> <h1>Edit</h1><center>
     <br>
-
+    
     <div class="container">
         <div class="text-container">
             <h1>Issue delivery</h1>
         </div>
-
+        
         <form method="post" action="/edit">
             @csrf
         <div class="mb-3">
         <br>
         <label for="totalAmount" class="form-label">ID:</label>
-        <input type="text" name="id"   value="{{$data['id']}}" class="form-control" id="id"  readonly >
+        <input type="text" name="id"   value="{{$data['id']}}" class="form-control" id="id"    readonly >
         <br>
         <label for="customerID" class="form-label">Customer ID      :</label>
         <input type="text" id="IDcustomer"     value="{{$data['idCustomer']}}"class="form-control" name="IdCustomer" readonly>
