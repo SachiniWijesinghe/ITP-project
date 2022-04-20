@@ -413,14 +413,14 @@
       <td scope="col">{{$dataa['idCustomer']}}</td>
       <td scope="col">{{$dataa['idOrder']}}</td>
      
-      <td><a href ={{"delete/".$dataa['id']}} class="btn btn-primary" >Delete</a>
-          <a href ={{"edit/".$dataa['id']}} class="btn btn-danger">Edit</a>
+      <td><a href ={{"edit/".$dataa['id']}} class="btn btn-primary" >Edit</a>
+          <a href ={{"delete/".$dataa['id']}} class="btn btn-danger">Delete</a>
           </td>
       </tr>
     @endforeach
 
 
-     
+    
 
       
       
