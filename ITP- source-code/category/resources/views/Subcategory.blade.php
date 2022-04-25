@@ -24,6 +24,10 @@
             <h6 class="m-0 font-weight-bold text-primary">Add  sub Category </h6>
         </div>
 
+        @if ($errors->any())
+
+
+@endif
         <div class="card-body">
             <form id="subcategory" action="/subcategorytinsert" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
@@ -41,6 +45,7 @@
                     <label> Sub Category name</label><br><br>
                     <input type="text" name="c_name" id="c_name"  class="form-control"
                            placeholder="Enter Category Name">
+                           <div  class=" alert-danger">{{$errors->first('c_name')}}
                 </div>
 
 

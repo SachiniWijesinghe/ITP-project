@@ -21,6 +21,7 @@
 <div class="container-fluid">
 
 
+
     <div class="container-fluid">
 
         <!-- DataTales Example -->
@@ -28,14 +29,24 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Add Department</h6>
             </div>
+          
+@if ($errors->any())
+
+
+@endif
 
             <div class="card-body">
                 <form id="Department" action="/departmentinsert" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label>Department name</label>
-                        <input type="text" name="c_name" id="c_name"  class="form-control"
-                               placeholder="Enter Department Name">
+                        <input type="text" name="c_name" id="c_name"  class="form-control" placeholder="Enter Department Name">
+                        <div  class=" alert-danger">{{$errors->first('c_name')}}
+                            
+                        </div>
+                               
+                               
+
                     </div>
 
 
@@ -126,6 +137,7 @@
 
 </div>
 </div>
+
 
 @include('layouts.footer')
 </div>

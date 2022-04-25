@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\SubCategoryFormRequest;
 use App\Models\department;
 use App\Models\category;
 use App\Models\subcategory;
@@ -14,7 +15,7 @@ class SubCategoryController extends Controller
 
 
 
-    public function store(Request $request ){
+    public function store(SubCategoryFormRequest $request ){
         
       
         $Subcategory= new subcategory();
