@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\CategoryFormRequest;
 use App\Models\department;
 use App\Models\category;
 use View;
@@ -16,7 +17,7 @@ class CategoryController extends Controller
 
 
 
-    public function store(Request $request ){
+    public function store(CategoryFormRequest $request ){
         
       
         $Category= new category();

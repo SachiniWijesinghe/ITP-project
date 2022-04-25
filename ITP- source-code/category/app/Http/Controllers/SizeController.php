@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\SizeFormRequest;
 use App\Models\size;
 use App\Models\department;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class SizeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SizeFormRequest $request)
     {
         //
         $size= new size();

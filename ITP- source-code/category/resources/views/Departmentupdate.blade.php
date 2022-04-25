@@ -23,17 +23,20 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Add Department</h6>
         </div>
+        
 
         <div class="card-body">
             <form id="Departmentupdate" action="/Depatup" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
-                
+              
                 <div class="form-group">
                     
                     <input type="hidden" name="idDepartment"  value="{{$data['idDepartment']}}"  id="idDepartment"  class="form-control">
                     <label>Department name</label>
                     <input type="text" name="Description" value="{{$data['Description']}}" id="Description"  class="form-control">
-
+                    
+                        <br>
+                        <br>
                 <button type="submit"   class="btn btn-primary"> Update </button>
 
             </form>

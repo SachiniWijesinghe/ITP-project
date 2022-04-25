@@ -91,25 +91,25 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/Department" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Main Category</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/Category" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Category</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/Subcategory" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Sub Category</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/Size" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Size</p>
                                 </a>

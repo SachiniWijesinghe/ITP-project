@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\DepartmentFromRequest;
 use App\Models\department;
 use Illuminate\Http\Request;
 use View;
@@ -34,8 +34,9 @@ class DepartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(DepartmentFromRequest $request)
+
+    { 
         //
         $Department= new department();
         $Department->Description=$request->c_name;
@@ -43,8 +44,8 @@ class DepartmentController extends Controller
 
 
 
-       return back()->withInput();
-
+      return back()->withInput();
+      return view("Department")->withInput()->with('message','insert succusessfully');
 
 
 
@@ -101,12 +102,11 @@ class DepartmentController extends Controller
     }
     public function update(Request $req)
     {
-        
+         
         $data=department::find($req->idDepartment);
         $data->Description=$req->Description;
        $data->save();
-       return redirect('Department'); 
-
+       return redirect('Department');
         
       
 

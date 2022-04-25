@@ -31,7 +31,10 @@
                 {{csrf_field()}}
                 
                     
-                
+                @if ($errors->any())
+
+
+@endif
                 <label>Select Department name</label><br>
                 <select  name="idDepartment" > 
                     @foreach($Datad as $row)
@@ -43,6 +46,7 @@
                     <label>Category name</label><br><br>
                     <input type="text" name="c_name" id="c_name"  class="form-control"
                            placeholder="Enter Category Name">
+                           <div  class=" alert-danger">{{$errors->first('c_name')}}
                 </div>
 
 
