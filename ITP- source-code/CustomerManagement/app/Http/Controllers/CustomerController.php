@@ -6,31 +6,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Candidate;
 use Illuminate\Support\Facades\DB;
-
+use View;
 
 class CustomerController extends Controller
 {
-    function show()
+    function show(Request $request)
     {
-        $data= Candidate::all();
-        return view('customers',['candidates'=>$data]);
-    }
-
-    //aluthem damnne serch ekata
-    function searchC(Request $request)
-    {
-        if(isset($_GET['query']))
-        {
-            $search_text=$_GET['query'];
-            $data=DB::table('candidates')->where('Fname','LIKE','%'.$search_text.'%')->paginate(100);
-            return view('search',['candidates'=>$data]);
+        $search=$request['search']??"";
+        if($search !=null){
+            $Data=Candidate::where('Fname','LIKE',"$search")->get();
 
         }
         else{
-            return view('search');
+            $Data=Candidate::all();
         }
+        return view('customers',['candidates'=>$Data]);
+
     }
 
+
+
+//delete
+
+public function delete($id)
+{
+    $Data=Candidate::find($id);
+    $Data->delete();
+    return redirect('customers');
+}
 
 
 

@@ -10,10 +10,9 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
 </head>
 
@@ -35,9 +34,9 @@
                     <i class="fas fa-search"></i>
                 </a>
                 <div class="navbar-search-block">
-                    <form class="form-inline" type="get" action="{{url('search')}}">
+                    <form class="form-inline" name="search" type="" action="customers">
                         <div class="input-group input-group-sm">
-                            <input class="form-control form-control-navbar" name="query" type="text" placeholder="Search" aria-label="Search">
+                            <input class="form-control form-control-navbar" name="search" type="text" placeholder="Search" aria-label="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-navbar" type="submit">
                                     <i class="fas fa-search"></i>
@@ -365,6 +364,19 @@
             </div>
         </div>
     </aside>
+    <!-- /.sidebar -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Customers</h1>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
 
 
 
@@ -372,94 +384,77 @@
 
 
 
-
-    <table class="table table-striped">
-        <thead>
-        <tr>
-
-            <th scope="col">ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col"> email</th>
-            <th scope="col">Password</th>
-            <th scope="col">Contact No</th>
-            <th scope="col">Address</th>
-            <th scope="col">City</th>
-            <th scope="col">ZIP</th>
-        </tr>
-        </thead>
-        @foreach($candidates as $candidates)
-            <tbody>
+        <table class="table table-striped">
+            <thead>
             <tr>
 
-                <td>{{$candidates['id']}}</td>
-                <td>{{$candidates['Fname']}}</td>
-                <td>{{$candidates['Lname']}}</td>
-                <td>{{$candidates['email']}}</td>
-                <td>{{$candidates['password']}}</td>
-                <td>{{$candidates['contactNo']}}</td>
-                <td>{{$candidates['Address']}}</td>
-                <td>{{$candidates['city']}}</td>
-                <td>{{$candidates['ZIP']}}</td>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col"> email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Contact No</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">ZIP</th>
             </tr>
+            </thead>
+            @foreach($candidates as $candidates)
+                <tbody>
+                <tr>
 
-            </tbody>
-        @endforeach
-    </table>
+                    <td>{{$candidates['id']}}</td>
+                    <td>{{$candidates['Fname']}}</td>
+                    <td>{{$candidates['Lname']}}</td>
+                    <td>{{$candidates['email']}}</td>
+                    <td>{{$candidates['password']}}</td>
+                    <td>{{$candidates['contactNo']}}</td>
+                    <td>{{$candidates['Address']}}</td>
+                    <td>{{$candidates['city']}}</td>
+                    <td>{{$candidates['ZIP']}}</td>
+                    <td><a href="click-delete/{{$candidates->id}}  " class="btn btn-danger">Delete</a></td>
+                </tr>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                </tbody>
+            @endforeach
+        </table>
 
 
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.2.0
-        </div>
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+    </div>
 </div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- bs-custom-file-input -->
-<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
-<!-- Page specific script -->
 
 
 
 
 
+<footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 3.2.0
+            </div>
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        </footer>
 
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
 
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- bs-custom-file-input -->
+    <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+    <!-- Page specific script -->
 
+</div>
 </body>
 
 </html>

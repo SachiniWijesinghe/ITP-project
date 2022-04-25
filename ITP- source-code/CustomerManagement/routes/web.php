@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::POST('/register','App\Http\Controllers\RegistersController@register');
 Route::get('customers',[CustomerController::class,'show']);
 
-Route::get('search',[CustomerController::class,'searchC'])->name('web.search');
+
+Route::get('click-delete/{id}',[CustomerController::class,'delete']);
 
 
