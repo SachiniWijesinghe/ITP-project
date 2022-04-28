@@ -410,7 +410,7 @@
 <table class="table">
 <thead class="thead-dark">
 <tr>
-<th scope="col">ID</th>
+<th scope="col">Order ID</th>
 <th scope="col">Date</th>
 <th scope="col">Total Quntity</th>
 <th scope="col">Total Amount</th>
