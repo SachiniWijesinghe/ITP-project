@@ -492,9 +492,9 @@
     <h6>Total Amount                 :  RS. {{$AmountPre6}}.00</h6>
     <br>
 
-    <h3>Last week Total Orders:{{$T0tal7daysAllOrders}}</h3>
-    <h3>Last week Total Sold Items:{{$T0tal7daystotalQty}}</h3>
-    <h3>Last week Income:Rs.{{$T0tal7daysAmount}}.00</h3>
+    <h3>Last Seven days Total Orders:{{$T0tal7daysAllOrders}}</h3>
+    <h3>Last Seven days Total Sold Items:{{$T0tal7daystotalQty}}</h3>
+    <h3>Last Seven days Income:Rs.{{$T0tal7daysAmount}}.00</h3>
     <br>
 
 <!---------------------------------------------------------------Pie Chart----------------------------------->
