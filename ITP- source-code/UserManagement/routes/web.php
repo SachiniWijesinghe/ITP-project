@@ -39,6 +39,8 @@ Route::view('addPrivileges','addAdminPrivileges');
 Route::post('addPrivileges',[AddPrivilegesController::class,'store']);
 Route::get('addPrivileges',[AddPrivilegesController::class,'show']);
 Route::get('click_delete/{id}',[AddPrivilegesController::class,'delete']);
+Route::get('click_edit/{id}',[AddPrivilegesController::class,'edit']);
+Route::post('update',[AddPrivilegesController::class,'update']);
 
 Auth::routes();
 

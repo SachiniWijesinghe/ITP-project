@@ -69,7 +69,8 @@ class AddPrivilegesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Admin_Privilege::find($id);
+        return view('updatePrivileges',['data'=>$data]);
     }
 
     /**
@@ -79,9 +80,17 @@ class AddPrivilegesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $data=Admin_Privilege::find($request->id);
+        $data->role=$request->role;
+        $data->addAdmin=$request->pv1;
+        $data->addAdminPrivileges=$request->pv2;
+        $data->addItems=$request->pv3;
+        $data->addCategory=$request->pv4;
+        $data->deliveryManagement=$request->pv5;
+        $data->save();
+        return redirect('addPrivileges');
     }
 
     /**
