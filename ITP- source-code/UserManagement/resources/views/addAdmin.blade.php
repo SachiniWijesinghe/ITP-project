@@ -365,15 +365,15 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="">Full Name</label>
-                                        <input type="text" class="form-control" id="fullName" placeholder="Enter Full Name">
+                                        <input type="text" class="form-control" id="fullName" placeholder="Enter Full Name" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Username</label>
-                                        <input type="text" class="form-control" id="username" placeholder="Enter Username">
+                                        <input type="text" class="form-control" id="username" placeholder="Enter Username" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Email</label>
-                                        <input type="text" class="form-control" id="email" placeholder="Enter Your Email">
+                                        <input type="text" class="form-control" id="email" placeholder="Enter Your Email" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Role</label>
@@ -384,11 +384,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Password</label>
-                                        <input type="password" class="form-control" id="password" placeholder="**********">
+                                        <input type="password" class="form-control" id="password" placeholder="**********" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Confirm Password</label>
-                                        <input type="password" class="form-control" id="con_password" placeholder="**********">
+                                        <input type="password" class="form-control" id="con_password" placeholder="**********" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Upload Profile Photo</label>

@@ -418,7 +418,7 @@
                                         <a href="click_edit/{{$data1->id}}" class="btn btn-success">Edit</a>
                                     </td>
                                     <td>
-                                        <a href="click_delete/{{$data1->id}}" class="btn btn-danger">Delete</a>
+                                        <a href="click_delete/{{$data1->id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -427,7 +427,7 @@
                         <button type="submit" class="btn btn-info" value="Button1" id="toggleVisibilityButton">Add Role</button>
                         <script>
                             document.getElementById("toggleVisibilityButton").addEventListener("click", function(button) {    
-                            if (document.getElementById("displaytable").style.display === "none")             document.getElementById("displaytable").style.display = "block";
+                            if (document.getElementById("displaytable").style.display === "none") document.getElementById("displaytable").style.display = "block";
                             else document.getElementById("displaytable").style.display = "none";
                             });
                         </script><br><br><br>
@@ -440,7 +440,7 @@
                                     <td class="lbl">Save</td>
                                     </tr>
                             <tr>
-                                    <td><input type="text" id="role" name="role" placeholder="Enter Role Name"></td>
+                                    <td><input type="text" id="role" name="role" placeholder="Enter Role Name" required></td>
                                     <td>
                                         <input type="checkbox" id="pv1" name="pv1">
                                         <label>Add admin</label><br>
