@@ -377,9 +377,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Role</label>
-                                        <select class="form-control select2" style="width: 100%;">
-                                            <option selected="selected"></option>
-                                            <option></option>
+                                        <select class="form-control select2" style="width: 100%;" name="">
+                                            <option>Select</option>
+                                            @foreach($data as $row)
+                                            <option value="{{$row->id}}">{{$row->role}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
