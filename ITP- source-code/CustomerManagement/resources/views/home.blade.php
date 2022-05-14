@@ -44,9 +44,7 @@
             <div class="form-group col-md-6 ">
                 <label for="InputLasttNamestName">Last Name</label>
                 <input type="text" name="Lname" class="form-control"id="InputLasttName"placeholder="Last Name">
-                @if ($errors->first('Fname'))
-                    <div class="alert-danger">{{$errors->first('Fname')}}</div>
-                @endif
+                
             </div>
         </div>
 
@@ -70,9 +68,7 @@
             <div class="form-group col-md-6 ">
                 <label for="inputCpassword">Confirm Password</label>
                 <input type="password" name="Cpassword" class="form-control" id="inputCpassword" placeholder="Confirm Password">
-                @if ($errors->first('Cpassword'))
-                    <div class="alert-danger">{{$errors->first('Cpassword')}}</div>
-                @endif
+                
             </div>
         </div>
 
@@ -111,12 +107,13 @@
         <br><br>
 
 
-        @if(session('response'))
-            <div class="col-md-8 alert  alert-success">
-                {{ session('response') }}
-            </div>
+        @if(Session::has('response'))
+        <div class="alert alert-success">{{Session::get('response')}}</div>
 
         @endif
+
+
+    
 
         <div class="row mb-3 p-2">
             <div class="form-group col-md-10">

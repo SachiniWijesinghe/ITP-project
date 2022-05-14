@@ -23,4 +23,21 @@ Route::get('customers',[CustomerController::class,'show']);
 
 Route::get('click-delete/{id}',[CustomerController::class,'delete']);
 
+//loging
+Route::get('/login',[CustomerController::class,'login']);
+Route::post('login-user',[CustomerController::class,'loginUser'])->name('login-user');
+
+
+//log weddi update form ekata ynawa
+Route::get('/dashboard',[CustomerController::class,'dashboard']);
+
+Route::get('profileView',[CustomerController::class,'profileView']);
+
+
+
+
+Route::get('logout',[CustomerController::class,'logout']);
+
+
+
 
