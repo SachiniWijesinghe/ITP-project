@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\AddPrivilegesController;
+use App\Http\Controllers\AddAdminController;
+
 use App\Models\Admin_Privilege;
 
 /*
@@ -41,8 +44,12 @@ Route::get('addPrivileges',[AddPrivilegesController::class,'show']);
 Route::get('click_delete/{id}',[AddPrivilegesController::class,'delete']);
 Route::get('click_edit/{id}',[AddPrivilegesController::class,'edit']);
 Route::post('update',[AddPrivilegesController::class,'update']);
-
 Route::get('/addAdmin',[AddPrivilegesController::class,'index']);
+
+//Route::get('addAdmin',[AddAdminController::class,'index']);
+Route::post('addAdmin',[AddAdminController::class,'getData']);
+//Route::post('addAdmin',[AddAdminController::class,'add']);
+//Route::view('addAdmin','addAdmin');
 
 Auth::routes();
 
