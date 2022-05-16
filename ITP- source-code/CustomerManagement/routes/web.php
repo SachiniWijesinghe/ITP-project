@@ -35,9 +35,12 @@ Route::get('profileView',[CustomerController::class,'profileView']);
 
 
 
-
+//logout
 Route::get('logout',[CustomerController::class,'logout']);
 
 
+//update eka
+Route::get('edit/{id}',[CustomerController::class,'showData']);
 
+Route::put('Pro-Update/{id}',[CustomerController::class,'ProUpdate']);
 

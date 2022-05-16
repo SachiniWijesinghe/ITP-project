@@ -101,4 +101,29 @@ public function logout(){
 
 
 
+
+public function showData($id){
+
+    $data = Candidate::find($id);
+    return view('edit',compact('data'));
+}
+
+function ProUpdate(Request $req,$id){
+
+$data = Candidate::find($id);
+$data->Fname= $req -> input('Fname');
+$data->Lname= $req -> input('Lname');
+$data->email= $req -> input('email');
+$data->contactNo= $req -> input('contactNo');
+$data->Address= $req -> input('Address');
+$data->city= $req -> input('city');
+$data->ZIP= $req -> input('ZIP');
+$data->update();
+return redirect('dashboard')->with('status',"Data Updated Sucessfully");
+
+
+}
+
+
+
 }
