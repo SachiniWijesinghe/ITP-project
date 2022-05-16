@@ -104,14 +104,14 @@
             <div class="row mb-2  p-2">
                 <div class="form-group col-md-8">
 
-                <a href="logout">logout </a>
+                <a href="logout" class="btn btn-danger">logout </a>
 
                 </div>
 
                 
 
                 <div class="form-group col-md-2">
-                    <button type="submit" class="btn btn-dark">Update</button>
+                <a class="btn btn-success" href={{"edit/".$data['id'] }}     >Update </a>
                 </div>
 
             </div>

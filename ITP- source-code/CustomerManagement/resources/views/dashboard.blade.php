@@ -41,7 +41,7 @@
 
 
 
-        <input type="image" src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" class="rounded-circle" class="img-fluid img-thumbnail"class="img-fluid img-thumbnail" class="card-img-top" alt="..."width=10% alt="submit"/>
+        <input type="image" src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" class="rounded-circle" class="img-fluid img-thumbnail"class="img-fluid img-thumbnail" class="card-img-top" alt="..."width=5% alt="submit"/>
 
 
 
