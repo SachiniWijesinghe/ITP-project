@@ -36,18 +36,18 @@
 <form action="profileView">
 
     <div class="row">
-        <div class="container form bg-secondary  mt-5 mb-5 col align-self-center col-5 " >
+        
 
 
 
 
-            <input type="image" src="https://www.freepngimg.com/thumb/submit_button/25497-9-submit-button-photos.png"  name="submit" width="80" height="50" alt="submit"/>
+        <input type="image" src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" class="rounded-circle" class="img-fluid img-thumbnail"class="img-fluid img-thumbnail" class="card-img-top" alt="..."width=10% alt="submit"/>
 
 
 
 
 
-        </div>
+        
     </div>
 
 

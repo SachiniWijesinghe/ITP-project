@@ -22,28 +22,29 @@
 
 
 <div class="row">
-    <div class="container form bg-secondary  mt-5 mb-5  col-12 col-sm-6 col-md-4  " >
+<div class="container    mt-5 mb-5   col-md-4  " >
 
+ 
+ <form action="">
+   <div class="  text-center mt-5">
+     <br><br><br>
+                        
+                        </div>
 
-        <form action="">
-            <div class="text-center mt-5">
-                <br><br><br>
-                <img src="img/download.png "class="rounded-circle"  class="mx-auto d-block img-fluid" alt="">
-            </div>
-
-            <div class ="container  text-center mt-5">
-                <div class="btn-group-vertical"role="group" ><!-- Button group vertical-->
-                    <button  class="btn btn-dark p-3 mt-5">My Orders</button>
-
-                    <button  class="btn btn-dark p-3 mt-5">My Wishlist</button>
-
-                    <button  class="btn btn-dark p-3 mt-5">My Reviews</button>
-                    <br><br><br>
-                </div>
-            </div>
+          <div class ="container  text-center mt-5">
+            <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" class="rounded-circle" class="img-fluid img-thumbnail"class="img-fluid img-thumbnail" class="card-img-top" alt="..."width=25%>
+          <div class="card btn-group-vertical"role="group" ><!-- Button group vertical-->
+          <button  class="btn btn-dark p-3 mt-5">My Orders</button>
+          
+      <button  class="btn btn-dark p-3 mt-5">My Wishlist</button>
+       
+          <button  class="btn btn-dark p-3 mt-5">My Reviews</button>
+          <br><br><br>
+          </div>
+          </div>
 
         </form>
-    </div>
+</div>
 
 
 
@@ -52,7 +53,7 @@
 
 
 
-    <div class="container form bg-secondary  mt-5 mb-5  col-12 col-sm-6 col-md-6  " >
+    <div class="container form bg-secondary  mt-5 mb-5  col-12 col-sm-5 col-md-5  " >
 
 
         <form action="">
@@ -103,9 +104,11 @@
             <div class="row mb-2  p-2">
                 <div class="form-group col-md-8">
 
+                <a href="logout">logout </a>
+
                 </div>
 
-                <a href="logout">logout </a>
+                
 
                 <div class="form-group col-md-2">
                     <button type="submit" class="btn btn-dark">Update</button>
