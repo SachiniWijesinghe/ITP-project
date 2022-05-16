@@ -18,12 +18,13 @@
 
 
 
+<br><br>
+<br> <br>
 
 
 
 
-
-    <div class="container form bg-secondary  mt-5 mb-5 col align-self-center col-5 " >
+    <div class="container card bg-secondary  mt-5 mb-5 col align-self-center col-5 " >
 
 
 
@@ -32,12 +33,12 @@
 
         <form action="{{route('login-user')}}"method="post">
             @csrf
-            <div class="form-group">
+            <div class="form-group mt-5">
                 <label for="inputEmail4">Email address:</label>
                 <input type="email" name="email" class="form-control" id="inputEmail4"  value="{{old('email')}}"  >
                 <span class="alert-danger">@error('email'){{$message}}@enderror</span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-5">
                 <label for="inputPassword">Password:</label>
                 <input type="password" class="form-control"  name="password"  id="inputPassword">
                 <span class="alert-danger">@error('password'){{$message}}@enderror</span>
