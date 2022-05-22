@@ -10,6 +10,8 @@ class category extends Model
     use HasFactory;
     protected $table="category";
     protected $primaryKey="idCategory";
+   
+    
     public $timestamps=false;
     
 }

@@ -12,6 +12,24 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.13/sweetalert2.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.13/sweetalert2.min.js" integrity="sha512-SR3/Bb4P/qiOdLfDNT5wF3xEP/dqY0XssTwutG/noALJfeaknc3Eos4CS+qdRqOB+GDKxO1tDFYBx5DSZVHFww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.13/sweetalert2.min.css" integrity="sha512-CJ5goVzT/8VLx0FE2KJwDxA7C6gVMkIGKDx31a84D7P4V3lOVJlGUhC2mEqmMHOFotYv4O0nqAOD0sEzsaLMBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Font: Source Sans Pro -->
+  <link esome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+      </script>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 <body>
 @include('layouts.header')
@@ -99,7 +117,7 @@
             <a href="click_edit2/{{ $Dvalue->idSize}}"class="btn btn-success">Edit</a>
         </td>
         <td>
-            <a href="click_delete2/{{ $Dvalue->idSize}}"class="btn btn-danger">Delete</a>
+            <button type="button "class="btn btn-danger delete"data-id ="{{ $Dvalue->idSize}}  " data-name ="{{ $Dvalue->Description}}" >Delete </button>
         </td>
 
     </tr>
@@ -125,8 +143,160 @@
 </div>
 
 </div>
-
-@include('layouts.footer')
 </div>
+@include('layouts.footer')
+
+<script>
+
+
+$('#save_cate').on('click',function(){
+    console.log("btn click");
+    var data=$('#c_name').val();
+    console.log(data);
+
+
+    if(data == ''){
+      const Toast = Swal.mixin({
+toast: true,
+position: 'top-end',
+showConfirmButton: false,
+timer: 5000,
+timerProgressBar: true,
+
+didOpen: (toast) => {
+toast.addEventListener('mouseenter', Swal.stopTimer)
+toast.addEventListener('mouseleave', Swal.resumeTimer)
+}
+})
+
+Toast.fire({
+icon: 'error',
+title: 'Size save Unsuccessfully'
+})
+} else{
+const Toast = Swal.mixin({
+toast: true,
+position: 'top-end',
+showConfirmButton: false,
+timer: 5000,
+timerProgressBar: true,
+
+didOpen: (toast) => {
+toast.addEventListener('mouseenter', Swal.stopTimer)
+toast.addEventListener('mouseleave', Swal.resumeTimer)
+}
+})
+
+Toast.fire({
+icon: 'success',
+title: 'Size save successfully'
+})
+
+}
+  
+  
+  })
+  </script>
+
+
+<script>
+
+$(document).ready(function () {
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+$('.delete').click(function (e) { 
+  e.preventDefault();
+ //var idDepartment= $(this).closest("tr").find('.serdelete_val').val();
+  var idSize=$(this).attr('data-id')
+ // var description=$(this).attr('data-name')
+ // alert(idDepartment);
+ 
+
+  swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this imaginary file!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    
+    var data ={"_token":$('input[name="csrf-token"]').val(),
+      "id":idSize,
+    };
+
+    $.ajax({
+      type: "GET",
+      url: 'click_delete2/'+idSize,
+      data: data,
+  
+      success: function (response) {
+
+        swal(response.states, {
+      icon: "success",
+    }).then((result)=>{
+
+      location.reload();    
+
+    });
+        
+      }
+    });
+
+  } 
+});
+
+ 
+
+
+//
+  //
+
+
+});
+  
+});
+
+</script>
+
+
+
+
+
+
+
+<!-- <script>
+      $('.delete').click(function(){
+      
+      var deletid=$(this).attr('data-id')
+      var description=$(this).attr('data-name')
+      
+        swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this "+"'" +description+"'"+" Category!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+      window.location="click_delete2/" +deletid+""
+    swal("Poof! Your Category has been deleted!", {
+      icon: "success",
+    });
+  } else {
+    swal("Your "+description+" is safe!");
+  }
+});
+    });
+      
+      
+  </script>   -->
+
 </body>
 </html>

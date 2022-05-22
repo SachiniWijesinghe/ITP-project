@@ -5,7 +5,7 @@ use App\Http\Requests\SubCategoryFormRequest;
 use App\Models\department;
 use App\Models\category;
 use App\Models\subcategory;
-
+use DB;
 use View;
 use Session;
 use Illuminate\Http\Request;
@@ -48,14 +48,17 @@ class SubCategoryController extends Controller
     }
     
 
-    public function destroy($idSubcategory) //delete method
+    public function destroy($id) //delete method
     {
-       
-        $data=subcategory::find($idSubcategory);
+        $data=subcategory::findOrFail($id);
         $data->delete();
         
+        return response()->json(['states'=>'Sub Category Deleted successfully']);
+      
+    
+        
   
-       return redirect('Subcategory');
+     //  return redirect('Subcategory');
 
 
     }
@@ -83,7 +86,13 @@ class SubCategoryController extends Controller
 
     }
 
-
+  
+    public function reportcategorys()
+    {   
+        $post=DB::select(DB::raw("select Count(idSubcategory) as NO_of_subhcategories,Category_idCategory from subcategory  GROUP BY Category_idCategory;"));
+      
+      return view('SubCategoryreport');
+    }
 
 
 

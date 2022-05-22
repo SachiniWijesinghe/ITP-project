@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\CategoryFormRequest;
+
 use App\Models\department;
 use App\Models\category;
 use View;
 use Session;
 use Illuminate\Http\Request;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -48,23 +50,24 @@ class CategoryController extends Controller
      //return View('Category',['Datad'=>$Datad]);
 
     }
-    public function destroy($idCategory) //delete method
+    public function destroy($id) //delete method
     {
        
-       $data=category::find($idCategory);
+       $data=category::findOrFail($id);
         $data->delete();
         
-  
-       return redirect('Category');
+        return response()->json(['states'=>'Category Deleted successfully']);
+      // return redirect('Category');
 
 
        
     
 
     }
-    public function update(Request $req)
+    public function update( Request $req  )
     {
-        
+    
+
        $data=category::find($req->idCategory);
         $data->Description=$req->Description;
         $data->Department_idDepartment=$req->idDepartment;
@@ -88,6 +91,23 @@ class CategoryController extends Controller
 
 
 
+    public function reportcategory()
+    {   
+        // $post=DB::select(DB::raw("select Count(idCategory) as NO_of_categories,Department_idDepartment from category  GROUP BY Department_idDepartment;"));
+          
+        // $data ="";
+        // foreach($post as $val){
+
+        //    $data.="['".$val->Department_idDepartment."',".$val->NO_of_categories."],";
+
+        // }
+        //  $chartData=$data;
+        //  return view('Category_report',compact('chartData'));
+         return view('Category_report');
+     //   return View('Category_report',['Data'=>$data]);
+      //  return View::make('Category_report')->with('data', $data);
+
+    }
 
    
        

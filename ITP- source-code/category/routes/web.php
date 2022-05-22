@@ -35,24 +35,28 @@ Route::get('/', function () {
 Route::get('/Department',[DepartmentController::class,'show']);
 
 Route::post('/departmentinsert',[DepartmentController::class,'store']); // insert link
-Route::get('click_delete/{idDepartment}',[DepartmentController::class,'destroy']);
+Route::get('click_delete/{id}',[DepartmentController::class,'destroy']);
 Route::get('click_edit/{idDepartment}',[DepartmentController::class,'showd']);
 Route::post('/Depatup',[DepartmentController::class,'update']);
 
+
+
 Route::get('/Category',[CategoryController::class,'show']);
 Route::post('/categorytinsert',[CategoryController::class,'store']);
-Route::get('click_deletec/{idCategory}',[CategoryController::class,'destroy']);
+Route::get('click_deletec/{id}',[CategoryController::class,'destroy']);
 Route::get('click_editc/{idCategory}',[CategoryController::class,'showc']);
 Route::post('/Catupd',[CategoryController::class,'update']);
+Route::get('/reportpage',[CategoryController::class,'reportcategory']);
 
 Route::get('/Subcategory',[SubCategoryController::class,'show']);
 Route::post('/subcategorytinsert',[SubCategoryController::class,'store']);
-Route::get('click_deletes/{idSubcategory}',[SubCategoryController::class,'destroy']);
+Route::get('click_deletes/{id}',[SubCategoryController::class,'destroy']);
 Route::get('click_edits/{idSubcategory}',[SubCategoryController::class,'shows']);
 Route::post('/subCatupd',[SubCategoryController::class,'update1']);
+Route::get('/reportpagesub',[SubCategoryController::class,'reportcategorys']);
 
 Route::get('/Size',[SizeController::class,'show']);
 Route::post('/sizeinsert',[SizeController::class,'store']);
-Route::get('click_delete2/{idSize}',[SizeController::class,'destroy']);
+Route::get('click_delete2/{id}',[SizeController::class,'destroy']);
 Route::get('click_edit2/{idSize}',[SizeController::class,'shows']);
 Route::post('/Sizeup',[SizeController::class,'update2']);

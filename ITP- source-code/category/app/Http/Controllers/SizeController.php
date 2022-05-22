@@ -118,12 +118,18 @@ class SizeController extends Controller
      * @param  \App\Models\department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idSize)
+    public function destroy($id)
     {
         //
-        $data=size::find($idSize);
+       
+        //return redirect('Size');
+
+
+
+        $data=size::findOrFail($id);
         $data->delete();
-        return redirect('Size');
+        //return redirect('Department');
+        return response()->json(['states'=>'Size Deleted successfully']);
 
     }
     
