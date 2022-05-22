@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Items;
+use Illuminate\Support\Facades\File;
 
 
 class itemsController extends Controller
@@ -34,14 +35,47 @@ class itemsController extends Controller
         //$items->show_newarrivels=$request->newcheck;
         $items->description=$request->description;
 
+        if ($request->hasFile('image1')){
+            $file = $request->file('image1');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file -> move('upload/items/', $filename);
+            $items->image1 = $filename;
+
+        }
+
+        if ($request->hasFile('image2')){
+            $file = $request->file('image2');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file -> move('upload/items/', $filename);
+            $items->image2 = $filename;
+
+        }
+
         $items->save();
         $data=Items::all();
 
-        return redirect()->back();
+        return redirect()->back()->with('status','Item Added Successfully !');
     }
 
     public function deleteitem($id){
         $items=Items::find($id);
+
+        $destination = 'upload/items/'.$items->image1;
+
+            if (File :: exists($destination)){
+                File :: delete($destination);
+            }
+
+        $destination = 'upload/items/'.$items->image2;
+
+            if (File :: exists($destination)){
+                File :: delete($destination);
+            }
+        
+
+
         $items->delete();
         return redirect()->back();
     }
@@ -49,7 +83,7 @@ class itemsController extends Controller
     public function updateitem($id){
         $items=Items::find($id);
 
-        return view('itemupdate')->with('itemdata', $items);
+        return view('test-update')->with('itemdata', $items);
     }
 
     
@@ -63,18 +97,50 @@ class itemsController extends Controller
         $hotDiscount=$request->hotDiscount;
         $description=$request->description;
 
-        $item=Items::find($id);
+        $items=Items::find($id);
 
-        $item->code=$code;
-        $item->name=$itemName;
-        $item->cost_amount=$cAmount;
-        $item->real_price=$realPrice; 
-        $item->selling_price=$sellPrice;
-        $item->hot_discount=$hotDiscount;
-        $item->description=$description;
+        $items->code=$code;
+        $items->name=$itemName;
+        $items->cost_amount=$cAmount;
+        $items->real_price=$realPrice; 
+        $items->selling_price=$sellPrice;
+        $items->hot_discount=$hotDiscount;
+        $items->description=$description;
+        if ($request->hasFile('image1')){
 
-        $item->save();
-        $data=Items::all();
-        return view('viewitems')->with('viewitems' , $data);
+            $destination = 'upload/items/'.$items->image1;
+
+            if (File :: exists($destination)){
+                File :: delete($destination);
+            }
+
+            $file = $request->file('image1');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file -> move('upload/items/', $filename);
+            $items->image1 = $filename;
+
+        }
+
+        if ($request->hasFile('image2')){
+
+            $destination = 'upload/items/'.$items->image2;
+
+            if (File :: exists($destination)){
+                File :: delete($destination);
+            }
+
+            $file = $request->file('image2');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file -> move('upload/items/', $filename);
+            $items->image2 = $filename;
+
+        }
+
+        $items->save();
+
+        $item=Items::all();
+        return view('viewitems')->with('items' , $item);
     }
 }

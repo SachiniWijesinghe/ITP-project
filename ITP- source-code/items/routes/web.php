@@ -1,20 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\sizeController;
 
 Route::get('/add-items', function () {
-    return view('dashboard');
+    $sizedata = App\Models\Sizes::all();
+    $colordata = App\Models\Colors::all();
+    return view('dashboard')->with('color',$colordata)->with('size',$sizedata);
 });
 
 Route::post('/view-items', 'App\Http\Controllers\itemsController@store');
@@ -32,9 +24,34 @@ Route::post('/update-items', 'App\Http\Controllers\itemsController@itemsupdate')
 
 
 Route::get('/size', function () {
-    return view('size');
+    $sizedata = App\Models\Sizes::all();
+    return view('size')->with('size',$sizedata);
 });
 
+Route::post('/addsize', 'App\Http\Controllers\sizeController@store');
+
+Route::get('/deletesize/{id}', 'App\Http\Controllers\sizeController@deletesize');
+
+
 Route::get('/colors', function () {
-    return view('colors');
+    $colordata = App\Models\Colors::all();
+    return view('colors')->with('color',$colordata);
+});
+
+Route::post('/addcolor', 'App\Http\Controllers\colorController@store');
+
+Route::get('/deletecolor/{id}', 'App\Http\Controllers\colorController@deletecolor');
+
+Route::get('/update', function () {
+    return view('update');
+});
+
+Route::get('/test-update', function () {
+    return view('test-update');
+});
+
+//customer item view page
+Route::get('/items', function () {
+    $data=App\Models\Items::all();
+    return view('itemshowpage')->with('items', $data);
 });

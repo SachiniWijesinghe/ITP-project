@@ -13,7 +13,6 @@ class Items extends Model
 
     protected $primaryKey = 'id';
 
-    public function itemImages() {
-        return $this->hasManay(itemImages::class);
-    }
+   
+
 }

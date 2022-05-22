@@ -9,9 +9,9 @@
      <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 
 </head>
 <body  class="hold-transition sidebar-mini">
@@ -136,13 +136,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href='/add-items' class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Items</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href='/all-items' class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Items</p>
                 </a>
@@ -343,7 +343,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Add Items</h1>
+                <h1>Edit Items</h1>
               </div>
             </div>
           </div><!-- /.container-fluid -->
@@ -357,7 +357,7 @@
               <!-- general form elements -->
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Size</h3>
+                  <h3 class="card-title">Items</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -369,56 +369,110 @@
                       {{ $error }}
                     </div>
                     @endforeach
-                <form action="/addsize" method="POST" enctype="multipart/form-data">
+                    <!-- /update-items
+-->
+                <form action="/update-items" method="POST" enctype="multipart/form-data">
                   @csrf
-                  
                   <div class="card-body">
                     <div class="form-group">
-                      <label for="size">Size</label>
-                      <input type="text" class="form-control" id="" name="size" placeholder="Enter size">
+                      <label for="">Code</label>
+                      <input type="text" class="form-control" name="code" placeholder="Enter code" value="{{$itemdata->code}}">
                     </div>
-                    
-                  </div>
-                  <!-- /.card-body -->
-  
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Add Size</button>
-                  </div>
-                </form>
+                    <div class="form-group">
+                      <label for="">Name</label>
+                      <input type="text" class="form-control" name="itemName" placeholder="Enter Name" value="{{$itemdata->name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Cost Amount</label>
+                        <input type="text" class="form-control" name="cAmount" placeholder="Enter Cost Amount" value="{{$itemdata->cost_amount}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Real Price</label>
+                        <input type="text" class="form-control" name="realPrice" placeholder="Enter Real Price" value="{{$itemdata->real_price}}">
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input class="custom-control-input" type="checkbox" name="realcheck" id="realcheck">
+                      <label for="realcheck" class="custom-control-label">Show Real Price</label>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="">Selling Price</label>
+                        <input type="text" class="form-control" name="sellPrice" placeholder="Enter Selling Price" value="{{$itemdata->selling_price}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Hot Deals Discount</label>
+                        <input type="text" class="form-control" name="hotDiscount" placeholder="Enter Discount" value="{{$itemdata->hot_discount}}">
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input class="custom-control-input" type="checkbox" id="hotcheck" name="hotcheck">
+                      <label for="hotcheck" class="custom-control-label">Show Hot Deals</label>
+                    </div><br>
+      
+                    <div class="custom-control custom-checkbox">
+                      <input class="custom-control-input" type="checkbox" name="newcheck" id="newcheck">
+                      <label for="newcheck" class="custom-control-label">Show New Arrivels</label>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="">Item Description</label>
+                        <input type="textarea" class="form-control" name="description" placeholder="Enter Description" value="{{$itemdata->description}}">
+                    </div>
 
-                <div class="card-body">
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Id</th>
-                        <th>Size</th>
-                        <th>Action</th>
-                    
-                      </tr>
-                       <tbody>@foreach ($size as $sizes)
-                  
-                      <tr>
-                        <td>{{$sizes->id}}</td>
-                        <td>{{$sizes->size}}</td>
-                        <td><a href="/deletesize/{{$sizes->id}}"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
-                        </td>
-                
-                      </tr>
-                      
-                      @endforeach
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer clearfix">
-                  <ul class="pagination pagination-sm m-0 float-right">
-                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                  </ul>
-                </div>
+                    <label for="image1">Image 01</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="image1" name="image1">
+                            <label class="custom-file-label" for="image1">Choose file</label>
+                          </div>
+                        </div>
+                        <label for="image2">Image 02</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="image2" name="image2">
+                            <label class="custom-file-label" for="image2">Choose file</label>
+                          </div>
+                        </div><br><br>
+
+
+                    <input type="hidden" name="id" value="{{$itemdata->id}}">
+                    <div class="card">
+                        <div class="card-header">
+                          <h1 class="card-title">Add Quntity</h1>
+                        </div>
+                        <div class="container">
+                        <div class="form-group">
+                            <label>Size</label>
+                            <select class="form-control select2" style="width: 100%;">
+                              <option selected="selected"></option>
+                              <option>s</option>
+                              <option>m</option>
+                              <option>l</option>
+                              <option>xl</option>
+                              <option>xxl</option>
+                              <option>xxxl</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Colors</label>
+                            <select class="form-control select2" style="width: 100%;">
+                              <option selected="selected"></option>
+                              <option>Red</option>
+                              <option>Yellow</option>
+                              <option>Orange</option>
+                              <option>Green</option>
+                              <option>White</option>
+                              <option>Black</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Quntity</label>
+                            <input type="number" min="0" class="form-control" name="quntity" placeholder="Enter Quntity">
+                        </div>
+                    </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-primary">update</button>
+                    </div><br>
+                </form>
               </div>
               <!-- /.card -->
             </div>
@@ -442,15 +496,15 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- bs-custom-file-input -->
-<script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 
 </body>

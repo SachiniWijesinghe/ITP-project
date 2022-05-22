@@ -372,19 +372,19 @@
                       {{ $error }}
                     </div>
                     @endforeach
-                <form action="/view-items" method="POST" enctype="multipart/form-data">
+                <form action="/addcolor" method="POST" enctype="multipart/form-data">
                   @csrf
                   
                   <div class="card-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Color Name</label>
-                      <input type="text" class="form-control" id="" name="colorname" placeholder="Enter Name">
+                      <input type="text" class="form-control" id="" name="name" placeholder="Enter Name">
                     </div>
                   
                       <label>Color picker with addon </label>
     
                       <div class="input-group my-colorpicker2">
-                        <input type="text" class="form-control" name="colorcode">
+                        <input type="text" class="form-control" name="code">
     
                         <div class="input-group-append">
                           <span class="input-group-text"><i class="fas fa-square"></i></span>
@@ -399,6 +399,33 @@
                     <button type="submit" class="btn btn-primary">Add Color</button>
                   </div>
                 </form>
+
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Color Name</th>
+                        <th>Color Code</th>
+                        <th>Action</th>
+                    
+                      </tr>
+                       <tbody>@foreach ($color as $colors)
+                  
+                      <tr>
+                        <td>{{$colors->id}}</td>
+                        <td>{{$colors->name}}</td>
+                        <td>{{$colors->code}}<br><input
+                        type="color" value="{{$colors->code}}" readonly></td>
+                        <td><a href="/deletecolor/{{$colors->id}}"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                        </td>
+                
+                      </tr>
+                      
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <!-- /.card -->
             </div>

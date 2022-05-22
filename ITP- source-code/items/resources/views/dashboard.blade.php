@@ -136,13 +136,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href='/add-items' class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Items</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href='/all-items' class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Items</p>
                 </a>
@@ -362,6 +362,14 @@
                 <!-- /.card-header -->
                 <!-- form start -->
                 <br>
+
+                @if (session('status'))
+                <center><div class="alert alert-info alert-success" style="width:65%">
+              
+                      <h5><i class="icon fas fa-info"></i>{{ session('status')}}</h5>
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    </div></center>
+                @endif
                  @foreach ($errors->all() as $error)
                     <div class="alert alert-info alert-dismissible">
                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -413,6 +421,21 @@
                         <label for="">Item Description</label>
                         <input type="textarea" class="form-control" name="description" placeholder="Enter Description">
                     </div>
+                    <label for="image1">Image 01</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="image1" name="image1">
+                            <label class="custom-file-label" for="image1">Choose file</label>
+                          </div>
+                        </div>
+                        <label for="image2">Image 02</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="image2" name="image2">
+                            <label class="custom-file-label" for="image2">Choose file</label>
+                          </div>
+                        </div><br><br>
+
                     <div class="card">
                         <div class="card-header">
                           <h1 class="card-title">Add Quntity</h1>
@@ -421,25 +444,27 @@
                         <div class="form-group">
                             <label>Size</label>
                             <select class="form-control select2" style="width: 100%;">
-                              <option selected="selected"></option>
-                              <option>s</option>
-                              <option>m</option>
+                              <option selected="selected"></option>@foreach ($size as $sizes)
+                              <option>{{$sizes->size}}</option>
+                              <!--<option>m</option>
                               <option>l</option>
                               <option>xl</option>
                               <option>xxl</option>
-                              <option>xxxl</option>
+                              <option>xxxl</option>-->
+                              @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Colors</label>
                             <select class="form-control select2" style="width: 100%;">
-                              <option selected="selected"></option>
-                              <option>Red</option>
-                              <option>Yellow</option>
+                              <option selected="selected"></option>@foreach ($color as $colors)
+                              <option>{{$colors->name}}</option>
+                              @endforeach
+                              <!--<option>Yellow</option>
                               <option>Orange</option>
                               <option>Green</option>
                               <option>White</option>
-                              <option>Black</option>
+                              <option>Black</option>-->
                             </select>
                         </div>
                         <div class="form-group">
@@ -453,89 +478,7 @@
                       <button type="submit" class="btn btn-primary">Add to Table</button>
                     </div><br>
 
-                    <div class="form-group">
-                      <label for="">Display Image</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="disImage"  id="disImage">
-                          <label class="custom-file-label" for="disImage"></label>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label for="">Main Image</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="mainImage" value="main_image">
-                          <label class="custom-file-label" for=""></label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label for="">Image 01</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="image1"
-                          value="image1">
-                          <label class="custom-file-label" for=""></label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label for="">Image 02</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="image2"
-                          value="image2">
-                          <label class="custom-file-label" for=""></label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label for="">Image 03</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="image3" value="image3">
-                          <label class="custom-file-label" for=""></label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label for="">Image 04</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="image4" value="image4">
-                          <label class="custom-file-label" for=""></label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label for="">Image 05</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="image5" value="image5">
-                          <label class="custom-file-label" for=""></label>
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
-                  </div>
+                    
 
 
                 </form>

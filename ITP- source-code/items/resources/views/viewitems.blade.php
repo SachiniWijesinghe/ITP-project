@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 
-     <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+ <!-- Google Font: Source Sans Pro -->
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
 </head>
 <body  class="hold-transition sidebar-mini">
@@ -136,13 +150,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href='/add-items' class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Items</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href='/all-items' class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Items</p>
                 </a>
@@ -378,8 +392,10 @@
                             <th>selling_price</th>
                             <th>hot_discount</th>
                             <th>show_hot</th>
-                            <th style="width:5px">show_newarrivels</th>
+                            <th >show New Arrivels</th>
                             <th>description</th>
+                            <th>Image 01</th>
+                            <th>Image 02</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -396,6 +412,8 @@
                             <td>{{$item->show_hot}}</td>
                             <td>{{$item->show_newarrivels}}</td>
                             <td>{{$item->description}}</td>
+                            <td><img src="{{ asset('upload/items/'.$item->image1) }}" width="50px" height="70px"></td>
+                            <td><img src="{{ asset('upload/items/'.$item->image2) }}" width="50px" height="70px"></td>
                             <td><a href="/deleteitem/{{$item->id}}"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
                               <a href="/updateitem/{{$item->id}}"><button type="button" class="btn btn-info"><i class="fas fa-edit"></i></button></a></td>
                             
