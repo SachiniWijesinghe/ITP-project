@@ -5,6 +5,7 @@ use App\Http\Requests\DepartmentFromRequest;
 use App\Models\department;
 use Illuminate\Http\Request;
 use View;
+use DB;
 
 class DepartmentController extends Controller
 {
@@ -61,8 +62,8 @@ class DepartmentController extends Controller
     {
       $search= $request['search']??"";
       if($search !=null){
-          $Data=department::where('Description','like',"%$search%")->get();
-
+          $Data=department::where('Description','like',"%$search%" )->get();
+         
       }else{
             $Data=department::all();
       }
@@ -107,7 +108,6 @@ class DepartmentController extends Controller
         $data->Description=$req->Description;
        $data->save();
        return redirect('Department');
-        
       
 
     }
@@ -117,13 +117,21 @@ class DepartmentController extends Controller
      * @param  \App\Models\department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idDepartment)
+    public function destroy($id)
     {
         //
-        $data=department::find($idDepartment);
+        $data=department::findOrFail($id);
         $data->delete();
-        return redirect('Department');
+        //return redirect('Department');
+        return response()->json(['states'=>'department Deleted successfully']);
 
     }
+// public function delete($id){
+//     $data=department::find($id);
+//     $data->delete();
+//     return response()->json(['states'=>'department Deleted successfully']);
+// }
+
+
     
 }
