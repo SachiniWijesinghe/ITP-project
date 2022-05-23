@@ -34,11 +34,15 @@ class itemsController extends Controller
         //$items->show_hot=$request->hotcheck;
         //$items->show_newarrivels=$request->newcheck;
         $items->description=$request->description;
+        $items->size=$request->size;
+        $items->color=$request->color;
+        $items->quntity=$request->quntity;
 
         if ($request->hasFile('image1')){
             $file = $request->file('image1');
+            $iname = $file->getClientOriginalName();
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
+            $filename = $iname.time().'.'.$extention;
             $file -> move('upload/items/', $filename);
             $items->image1 = $filename;
 
@@ -116,7 +120,8 @@ class itemsController extends Controller
 
             $file = $request->file('image1');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extention;
+            $iname = $file->getClientOriginalName();
+            $filename = $iname.time().'.'.$extention;
             $file -> move('upload/items/', $filename);
             $items->image1 = $filename;
 

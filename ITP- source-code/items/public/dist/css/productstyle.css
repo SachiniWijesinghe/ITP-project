@@ -44,7 +44,7 @@
 }
 
 .product__details__pic__left .pt img {
-	min-width: 100%;
+	width: 100%;
 }
 
 .product__details__slider__content {
@@ -57,7 +57,7 @@
 	position: absolute;
 	left: 10px;
 	top: 50%;
-	font-size: 22px;
+	font-size: 50px;
 	color: #111111;
 	width: 40px;
 	height: 40px;
@@ -326,7 +326,7 @@
 	height: 20px;
 	width: 20px;
 	background: #e31e2f;
-	border-radius: 50%;
+	
 	content: "";
 }
 

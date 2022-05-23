@@ -364,7 +364,6 @@
         </section>
     
     <section class="content">
-        
           <div class="row">
             <!-- left column -->
             <div class="col-md-12">
@@ -392,8 +391,11 @@
                             <th>selling_price</th>
                             <th>hot_discount</th>
                             <th>show_hot</th>
-                            <th >show New Arrivels</th>
+                            <th>show New Arrivels</th>
                             <th>description</th>
+                            <th>size</th>
+                            <th>color</th>
+                            <th>quntity</th>
                             <th>Image 01</th>
                             <th>Image 02</th>
                             <th>Action</th>
@@ -412,6 +414,9 @@
                             <td>{{$item->show_hot}}</td>
                             <td>{{$item->show_newarrivels}}</td>
                             <td>{{$item->description}}</td>
+                            <td>{{$item->size}}</td>
+                            <td>{{$item->color}}</td>
+                            <td>{{$item->quntity}}</td>
                             <td><img src="{{ asset('upload/items/'.$item->image1) }}" width="50px" height="70px"></td>
                             <td><img src="{{ asset('upload/items/'.$item->image2) }}" width="50px" height="70px"></td>
                             <td><a href="/deleteitem/{{$item->id}}"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
@@ -424,15 +429,6 @@
                       </table>
                     
                     <!-- /.card-body -->
-                    <div class="card-footer clearfix">
-                      <ul class="pagination pagination-sm m-0 float-right">
-                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                      </ul>
-                    </div>
                   
                   </div>
               </div>

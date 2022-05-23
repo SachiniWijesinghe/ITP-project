@@ -62,12 +62,20 @@
                       </nav>
         </div>
         
-   <div class="container">
+ <div class="container">
     <section class="product-details spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="product__details__pic">
+                        <div class="product__details__pic__left product__thumb nice-scroll">
+                            <a class="pt active" href="#product-1">
+                                <img src="{{asset('upload/items/'.$itemdata->image1)}}" alt="">
+                            </a>
+                            <a class="pt" href="#product-2">
+                                <img src="{{asset('upload/items/'.$itemdata->image2)}}" alt="">
+                            </a>
+                        </div>
                         <div class="product__details__slider__content">
                             <div class="product__details__pic__slider owl-carousel">
                                 <img data-hash="product-1" class="product__big__img" src="{{asset('upload/items/'.$itemdata->image1)}}" alt="">
@@ -140,7 +148,11 @@
                         </div>
                     </div>
                 </div>
-   </div>
+            </div>
+        </div>
+    </section>
+ </div>
+   
 
 
     <script src="../../dist/js/owl.carousel.min.js"></script>

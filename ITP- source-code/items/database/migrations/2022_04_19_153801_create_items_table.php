@@ -25,6 +25,9 @@ return new class extends Migration
             $table->boolean('show_hot')->default(0);
             $table->boolean('show_newarrivels')->default(0);
             $table->string('description');
+            $table->string('size')->default('S');
+            $table->string('color')->default('Red');
+            $table->integer('quntity')->default(5);
             $table->string('image1');
             $table->string('image2');
             $table->timestamps();
