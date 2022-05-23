@@ -143,4 +143,10 @@ class itemsController extends Controller
         $item=Items::all();
         return view('viewitems')->with('items' , $item);
     }
+
+    public function itemdetails($id){
+        $items=Items::find($id);
+
+        return view('itemdetailpage')->with('itemdata', $items);
+    }
 }

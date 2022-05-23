@@ -55,3 +55,11 @@ Route::get('/items', function () {
     $data=App\Models\Items::all();
     return view('itemshowpage')->with('items', $data);
 });
+
+//customer item details page
+/*Route::get('/itemdetails/{id}', function () {
+    $data=App\Models\Items::find();
+    return view('itemdetailpage')->with('items', $data);
+});*/
+
+Route::get('/itemdetails/{id}', 'App\Http\Controllers\itemsController@itemdetails');
