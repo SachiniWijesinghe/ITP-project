@@ -51,7 +51,7 @@
                 <form id="Size" action="/sizeinsert" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
-                        <label>input a Size</label>
+                        <label>Size Description </label>
                         <input type="text" name="c_name" id="c_name"  class="form-control"
                                placeholder="Enter Size Name">
                                <div  class=" alert-danger">{{$errors->first('c_name')}}

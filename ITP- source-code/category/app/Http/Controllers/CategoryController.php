@@ -6,6 +6,7 @@ use App\Http\Requests\CategoryFormRequest;
 use App\Models\department;
 use App\Models\category;
 use App\Models\subcategory;
+use App\Models\size;
 use View;
 use Session;
 use Illuminate\Http\Request;
@@ -107,9 +108,10 @@ class CategoryController extends Controller
      $countD=department::count('Description');
      $countC=category::count('Description');
      $countS=subcategory::count('Description');
+     $countM=size::count('Description');
 
 /// return $tatol;
-      return view('Category_report')->with('countD',$countD)->with('countC',$countC)->with('countS',$countS);
+      return view('Category_report')->with('countD',$countD)->with('countC',$countC)->with('countS',$countS)->with('countM',$countM);
     
          
 

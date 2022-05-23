@@ -69,48 +69,54 @@ while($row= mysqli_fetch_assoc($res2)){
  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
  
 @include('layouts.header')
+<div class="btnr"style="margin-left:30px;">
+				<button class="btn btn-success "onclick="generatePDF()">Download as PDF</button>
+
+				</div>
   <div id="invoice">
 
-
-
- <div class= "allcontent"  alighn="center" style="margin-left:20px;margin-right:20px;margin-top:50px;height:auto;">
+ <div class= "allcontent"  alighn="center" style="margin-left:20px;margin-right:20px,height:auto;">
 
  
  <center><h1 styel="">Category Report</h1></center>
  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr class="btn-dark">
-                        <th>ID</th>
-                        <th>Description </th>
-                        <th>Edit </th>
-                        <th>Delete </th>
+                        <th> Report Description</th>
+                        <th>Total Count </th>
+                       
 
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
+					<td>NO of Departments</td>
+					
                   <td>{{$countD}}</td>
 					</tr>
 					<tr>
+					<td>NO of Categorys</td>
                   <td>{{$countC}}</td>
 					</tr>
 					<tr>
+					<td>NO of Sub Category</td>
                   <td>{{$countS}}</td>
+					</tr>
+
+					<tr>
+					<td>NO of size types</td>
+                  <td>{{$countM}}</td>
 					</tr>
 					</tbody>
                     
                 </table>
-				</div>
 				
-				</div>
-				<button class="btn btn-success "onclick="generatePDF()">Download as PDF</button>
-
-	
+				
 
 
 
-
-<section class="content" style ="margin-right:20px;margin-top:50px;">
+				<br><br><br><br><br> 	
+<section class="content" style ="margin-left:20px;margin-right:20px;margin-top:50px;">
     
 
 <select name ="chart" onchange ="myfunction()" class ="form-control" id="chart" style ="width:120px;">
@@ -125,15 +131,16 @@ while($row= mysqli_fetch_assoc($res2)){
 
 
  <div class="product-index " alighn="center" style= "margin-top:40px">
- <div  id="chartContainer"  style= "height :auto; width:100%;">
+ <div  id="chartContainer"  style= "height :auto; width:50%;">
 </div>
 </div>
 
 
 
 </section> 
+<br><br><br>
 
-<section class="content" style ="margin-right:20px;margin-top:500px;">
+<section class="content" style ="margin-left:20px; margin-right:20px;margin-top:500px;">
 
 <select name ="chart" onchange ="myfunction2()" class ="form-control" id="chart2" style ="width:120px;">
 <option value="">Select type</option>
@@ -144,16 +151,13 @@ while($row= mysqli_fetch_assoc($res2)){
 <option value="doughnut">doughnut chart</option>
 </select>
 <div class="product-index " alighn="center" style= "margin-top:50px;height:400px;">
- <div  id="chartContainer2"  style= " width:50%; align:center; ">
+ <div  id="chartContainer2"  style= " width:50%;  ">
 </div>
 </div>
 </section> 
 
 
-<br><br>
-<br><br>
-
-<br><br>
+<br>
 
 
 
@@ -161,7 +165,10 @@ while($row= mysqli_fetch_assoc($res2)){
 
 
 
+</div>
+		</div>
 
+	
 
 
 
@@ -226,7 +233,7 @@ var chart = new CanvasJS.Chart("chartContainer2", {
 	animationEnabled: true,
 	theme: "dark1", // "light1", "light2", "dark1", "dark2"
 	title:{
-		text: "No of SUb Category For Each Category"
+		text: "No of Sub Category For Each Category"
 	},
 	axisY: {
 		title: "NO of  SUb Categorys"
@@ -241,7 +248,7 @@ var chart = new CanvasJS.Chart("chartContainer2", {
 		showInLegend: true, 
     
 		yValueFormatString: "#,##0\"\"",
-        indexLabel:"{label} ({y} sub categorise)",
+        indexLabel:"{label} ({y} )",
 		dataPoints: <?php echo json_encode($datapoints2,JSON_NUMERIC_CHECK); ?>
 	}]
 });
