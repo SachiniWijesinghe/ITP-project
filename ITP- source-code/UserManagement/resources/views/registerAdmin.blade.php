@@ -343,7 +343,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Add Admin</h1>
+                        <h1>Register Admin</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -374,7 +374,7 @@
                             </div>
                         @endif
 
-                            <form action="addAdmin" method="post">
+                            <form action="registerAdmin" method="post">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
@@ -392,25 +392,13 @@
                                         <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Email" value="{{old('email')}}">
                                         <span style="color:red">@error('email'){{$message}}@enderror</span>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Role</label>
-                                        <select class="form-control select2" style="width: 100%;" name="role" id="role" value="{{old('role')}}">
-                                            @foreach($data as $row)
-                                            <option value="{{$row->id}}">{{$row->role}}</option>
-                                            @endforeach
-                                        </select>
-                                        <span style="color:red">@error('role'){{$message}}@enderror</span>
-                                    </div>
+                                 
                                     <div class="form-group">
                                         <label for="">Password</label>
                                         <input type="password" class="form-control" id="password" name="password" placeholder="**********" value="{{old('password')}}">
                                         <span style="color:red">@error('password'){{$message}}@enderror</span>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Confirm Password</label>
-                                        <input type="password" class="form-control" id="con_password" name="con_password" placeholder="**********" value="{{old('con_password')}}">
-                                        <span style="color:red">@error('con_password'){{$message}}@enderror</span>
-                                    </div>
+                             
                                     <div class="form-group">
                                         <label for="">Upload Profile Photo</label>
                                         <div class="input-group">

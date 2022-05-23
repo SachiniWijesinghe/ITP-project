@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rules\Password;
+use Crypt;
 
 class AddAdminController extends Controller
 {
@@ -22,11 +24,14 @@ class AddAdminController extends Controller
 
         $request->validate([
             'fullName'=>'required',
-            'username'=>'required',
+            'username'=>'required|min:6|max:50',
             'email'=>'required|email|unique:admin',
-            'role'=>'required',
-            'password'=>'required',
-            'con_password'=>'required',
+            //'role'=>'required',
+            'password'=>[
+                'required','string',
+                Password::min(8)->letters()->numbers()->mixedCase()->symbols()
+            ],
+            //'con_password'=>'required|string|min:8|confirmed',
             'disImage'=>'required'
         ]);
 
@@ -34,9 +39,9 @@ class AddAdminController extends Controller
             'fullName'=>$request->input('fullName'),
             'username'=>$request->input('username'),
             'email'=>$request->input('email'),
-            'role'=>$request->input('role'),
-            'password'=>$request->input('password'),
-            'con_password'=>$request->input('con_password'),
+            //'role'=>$request->input('role'),
+            'password'=>Crypt::encrypt($request->input('password')),
+            //'con_password'=>$request->input('con_password'),
             'disImage'=>$request->input('disImage'),
         ]);
 
