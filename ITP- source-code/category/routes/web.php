@@ -46,6 +46,8 @@ Route::post('/categorytinsert',[CategoryController::class,'store']);
 Route::get('click_deletec/{id}',[CategoryController::class,'destroy']);
 Route::get('click_editc/{idCategory}',[CategoryController::class,'showc']);
 Route::post('/Catupd',[CategoryController::class,'update']);
+
+//graph
 Route::get('/reportpage',[CategoryController::class,'reportcategory']);
 
 Route::get('/Subcategory',[SubCategoryController::class,'show']);
@@ -53,7 +55,8 @@ Route::post('/subcategorytinsert',[SubCategoryController::class,'store']);
 Route::get('click_deletes/{id}',[SubCategoryController::class,'destroy']);
 Route::get('click_edits/{idSubcategory}',[SubCategoryController::class,'shows']);
 Route::post('/subCatupd',[SubCategoryController::class,'update1']);
-Route::get('/reportpagesub',[SubCategoryController::class,'reportcategorys']);
+//graph
+//Route::get('/reportpagesub',[SubCategoryController::class,'reportcategorys']);
 
 Route::get('/Size',[SizeController::class,'show']);
 Route::post('/sizeinsert',[SizeController::class,'store']);
