@@ -117,7 +117,7 @@
 
         <div class="row mb-3 p-2">
             <div class="form-group col-md-10">
-                <div id="emailHelp" class="form-text text-black">Already Registered?<a href="#" class="alert-link">login here</a></div>
+                <div id="emailHelp" class="form-text text-black">Already Registered?<a href="login" class="alert-link">login here</a></div>
             </div>
 
 
