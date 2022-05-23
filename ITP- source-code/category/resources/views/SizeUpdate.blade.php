@@ -28,7 +28,7 @@
                     
                     <input type="hidden" name="idSize"  value="{{$data['idSize']}}"  id="idSize"  class="form-control">
                     <label>Size name</label>
-                    <input type="text" name="Description" value="{{$data['Description']}}" id="Description"  class="form-control">
+                    <input type="text" name="Description" value="{{$data['Description']}}" id="Description"  class="form-control"required>
 
                 <button type="submit"   class="btn btn-primary"> Update </button>
 
