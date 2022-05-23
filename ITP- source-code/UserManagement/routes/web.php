@@ -26,8 +26,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/addAdmin', function () {
-    return view('addAdmin');
+Route::get('/registerAdmin', function () {
+    return view('registerAdmin');
 });
 
 Route::get('/searchAdmin', function () {
@@ -44,10 +44,10 @@ Route::get('addPrivileges',[AddPrivilegesController::class,'show']);
 Route::get('click_delete/{id}',[AddPrivilegesController::class,'delete']);
 Route::get('click_edit/{id}',[AddPrivilegesController::class,'edit']);
 Route::post('update',[AddPrivilegesController::class,'update']);
-Route::get('/addAdmin',[AddPrivilegesController::class,'index']);
+//Route::get('/addAdmin',[AddPrivilegesController::class,'index']);
 
 //Route::get('addAdmin',[AddAdminController::class,'index']);
-Route::post('addAdmin',[AddAdminController::class,'getData']);
+Route::post('registerAdmin',[AddAdminController::class,'getData']);
 //Route::post('addAdmin',[AddAdminController::class,'add']);
 //Route::view('addAdmin','addAdmin');
 

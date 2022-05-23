@@ -420,7 +420,7 @@
                                     <td>
                                         <a href="click_delete/{{$data1->id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                     </td>
-                                </tr>
+                                </tr>      
                                 @endforeach
                             </tbody>
                         </table><br><br>

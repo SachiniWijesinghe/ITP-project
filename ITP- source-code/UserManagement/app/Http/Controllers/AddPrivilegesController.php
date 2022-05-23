@@ -15,8 +15,8 @@ class AddPrivilegesController extends Controller
      */
     public function index()
     {
-        $data = Admin_Privilege::all();
-        return view('addAdmin',['data'=>$data]);
+        // $data = Admin_Privilege::all();
+        // return view('addAdmin',['data'=>$data]);
     }
 
     /**
