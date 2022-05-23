@@ -5,6 +5,8 @@ use App\Http\Requests\CategoryFormRequest;
 
 use App\Models\department;
 use App\Models\category;
+use App\Models\subcategory;
+use App\Models\size;
 use View;
 use Session;
 use Illuminate\Http\Request;
@@ -95,29 +97,25 @@ class CategoryController extends Controller
     {   
         // $post=DB::select(DB::raw("select Count(idCategory) as NO_of_categories,Department_idDepartment from category  GROUP BY Department_idDepartment;"));
           
-        // $data ="";
-        // foreach($post as $val){
-
+      
         //    $data.="['".$val->Department_idDepartment."',".$val->NO_of_categories."],";
 
         // }
         //  $chartData=$data;
         //  return view('Category_report',compact('chartData'));
-         return view('Category_report');
-     //   return View('Category_report',['Data'=>$data]);
-      //  return View::make('Category_report')->with('data', $data);
+
+        
+     $countD=department::count('Description');
+     $countC=category::count('Description');
+     $countS=subcategory::count('Description');
+     $countM=size::count('Description');
+
+/// return $tatol;
+      return view('Category_report')->with('countD',$countD)->with('countC',$countC)->with('countS',$countS)->with('countM',$countM);
+    
+         
 
     }
 
-   
-       
 
-
-
-
-
-
-
-
-    //
 }

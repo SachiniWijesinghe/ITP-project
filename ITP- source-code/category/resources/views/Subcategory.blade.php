@@ -147,7 +147,7 @@
                     </tr>
                     </tfoot>
                 </table>
-                <a href="/reportpagesub">
+                <a href="/reportpage">
                 <button   name="graph" id="grapgp" class="btn btn-primary"> show graph </button>
                 </a>
             </div>

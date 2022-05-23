@@ -89,9 +89,9 @@ class SubCategoryController extends Controller
   
     public function reportcategorys()
     {   
-        $post=DB::select(DB::raw("select Count(idSubcategory) as NO_of_subhcategories,Category_idCategory from subcategory  GROUP BY Category_idCategory;"));
+       
       
-      return view('SubCategoryreport');
+      return view('Category_report');
     }
 
 

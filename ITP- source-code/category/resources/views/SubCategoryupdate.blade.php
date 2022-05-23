@@ -39,8 +39,8 @@
                      @endforeach
                     </select><br><br>
                  
-                    <label>Department name</label>
-                    <input type="text" name="Description" value="{{$Data1['Description']}}" id="Description"  class="form-control">
+                    <label>Sub Category name</label>
+                    <input type="text" name="Description" value="{{$Data1['Description']}}" id="Description"  class="form-control"required>
 
                 <button type="submit"   class="btn btn-primary"> Update </button>
 
