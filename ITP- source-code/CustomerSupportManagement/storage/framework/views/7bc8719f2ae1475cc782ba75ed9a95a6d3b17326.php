@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\INSIGHT\OneDrive\Desktop\addContact\resources\views/Feedbacks/index.blade.php ENDPATH**/ ?>
