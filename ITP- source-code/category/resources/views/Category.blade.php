@@ -50,11 +50,17 @@
                 {{csrf_field()}}
                 
                     
-                @if ($errors->any())
+            
 
 
-@endif
+            @if(session('message'))
+              <div class="alert alert-success">{{session('message')}}</div>
+              @endif
+
+
+
                 <label>Select Department name</label><br>
+               
                 <select  name="idDepartment" > 
                     @foreach($Datad as $row)
                   <option    value="{{$row->idDepartment}}">{{$row->Description}}

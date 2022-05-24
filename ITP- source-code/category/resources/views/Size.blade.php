@@ -39,6 +39,7 @@
 
     <div class="container-fluid">
 
+    
         <!-- DataTales Example -->
         <div class="card shadow mb-5">
             <div class="card-header py-3">
@@ -50,6 +51,11 @@
             <div class="card-body">
                 <form id="Size" action="/sizeinsert" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
+
+                    
+            @if(session('message'))
+              <div class="alert alert-success">{{session('message')}}</div>
+              @endif
                     <div class="form-group">
                         <label>Size Description </label>
                         <input type="text" name="c_name" id="c_name"  class="form-control"
@@ -93,6 +99,7 @@
         <div class="card-body">
 
             <div class="table-responsive">
+          
 
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>

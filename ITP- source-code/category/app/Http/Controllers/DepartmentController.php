@@ -45,8 +45,8 @@ class DepartmentController extends Controller
 
 
 
-      return back()->withInput();
-      return view("Department")->withInput()->with('message','insert succusessfully');
+      //return back()->withInput();
+      return redirect("Department")->with('message','insert succusessfully');
 
 
 
@@ -101,13 +101,14 @@ class DepartmentController extends Controller
         return view ('Departmentupdate',['data'=>$data]);
 
     }
-    public function update(Request $req)
+    public function update(Request $req  )
     {
-         
+      
+
         $data=department::find($req->idDepartment);
         $data->Description=$req->Description;
        $data->save();
-       return redirect('Department');
+       return redirect('Department')->with('message','update succusessfully');
       
 
     }

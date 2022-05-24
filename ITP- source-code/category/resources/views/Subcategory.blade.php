@@ -50,7 +50,11 @@
             <form id="subcategory" action="/subcategorytinsert" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 
-                    
+
+                  @if(session('message'))
+              <div class="alert alert-success">{{session('message')}}</div>
+              @endif
+    
                 
                 <label>Select Category name</label><br>
                 <select  name="idCategory" > 

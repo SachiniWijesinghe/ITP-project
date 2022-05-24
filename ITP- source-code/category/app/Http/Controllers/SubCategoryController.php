@@ -26,7 +26,9 @@ class SubCategoryController extends Controller
         $Subcategory->save();
 
 
-     return back()->withInput( );
+    //        return back()->withInput( );
+
+    return redirect("Subcategory")->with('message','insert succusessfully');
     
        }
 //show tabale data and serch funtion
@@ -69,8 +71,8 @@ class SubCategoryController extends Controller
         $data->Description=$req->Description;
         $data->Category_idCategory=$req->idCategory;
        $data->save();
-       return redirect('Subcategory'); 
-
+      // return redirect('Subcategory'); 
+       return redirect("Subcategory")->with('message','update succusessfully');
         
       
 

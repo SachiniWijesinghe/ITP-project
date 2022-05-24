@@ -32,7 +32,8 @@ class CategoryController extends Controller
         $Category->save();
 
 
-     return back()->withInput( );
+    // return back()->withInput( );
+     return redirect("Category")->with('message','insert succusessfully');
     
        }
 //show tabale data and serch funtion
@@ -74,7 +75,7 @@ class CategoryController extends Controller
         $data->Description=$req->Description;
         $data->Department_idDepartment=$req->idDepartment;
        $data->save();
-       return redirect('Category'); 
+       return redirect('Category')->with('message','update succusessfully');; 
 
         
       
