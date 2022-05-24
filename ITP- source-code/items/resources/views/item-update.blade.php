@@ -6,26 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 
- <!-- Google Font: Source Sans Pro -->
- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+     <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 
 </head>
 <body  class="hold-transition sidebar-mini">
@@ -357,13 +343,14 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>All Items</h1>
+                <h1>Edit Items</h1>
               </div>
             </div>
           </div><!-- /.container-fluid -->
         </section>
     
     <section class="content">
+        <div class="container">
           <div class="row">
             <!-- left column -->
             <div class="col-md-12">
@@ -373,63 +360,105 @@
                   <h3 class="card-title">Items</h3>
                 </div>
                 <!-- /.card-header -->
-
-                <div class="card table-responsive p-2">
-                    <div class="card-header">
-                      <h3 class="card-title">View all Items</h3>
+                <!-- form start -->
+                <br>
+                 @foreach ($errors->all() as $error)
+                    <div class="alert alert-info alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <h5><i class="icon fas fa-info"></i> Alert!</h5>
+                      {{ $error }}
                     </div>
-                    <!-- /.card-header -->
+                    @endforeach
+                    <!-- /update-items
+-->
+                <form action="/update-items" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="">Code</label>
+                      <input type="text" class="form-control" name="code" placeholder="Enter code" value="{{$itemdata->code}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Name</label>
+                      <input type="text" class="form-control" name="itemName" placeholder="Enter Name" value="{{$itemdata->name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Cost Amount</label>
+                        <input type="text" class="form-control" name="cAmount" placeholder="Enter Cost Amount" value="{{$itemdata->cost_amount}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Real Price</label>
+                        <input type="text" class="form-control" name="realPrice" placeholder="Enter Real Price" value="{{$itemdata->real_price}}">
+                    </div>
                     
-                      <table class="table table-bordered ">
-                        <thead>
-                          <tr>
-                            <th>code</th>
-                            <th>name</th>
-                            <th>cost amount</th>
-                            <th>real price</th>
-                            <th>selling price</th>
-                            <th>hot discount</th>
-                            <th>description</th>
-                            <th>size</th>
-                            <th>color</th>
-                            <th>quntity</th>
-                            <th>Image 01</th>
-                            <th>Image 02</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          @foreach ($items as $item)
-                          <tr>
-                            <td>{{$item->code}}</td>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->cost_amount}}</td>
-                            <td>{{$item->real_price}}</td>
-                            <td>{{$item->selling_price}}</td>
-                            <td>{{$item->hot_discount}}</td>
-                            <td>{{$item->description}}</td>
-                            <td>{{$item->size}}</td>
-                            <td>{{$item->color}}</td>
-                            <td>{{$item->quntity}}</td>
-                            <td><img src="{{ asset('upload/items/'.$item->image1) }}" width="50px" height="70px"></td>
-                            <td><img src="{{ asset('upload/items/'.$item->image2) }}" width="50px" height="70px"></td>
-                            <td><a href="/deleteitem/{{$item->id}}"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
-                              <a href="/updateitem/{{$item->id}}"><button type="button" class="btn btn-info pr-2"><i class="far fa-edit"></i></button></a></td>
-                            
-                          </tr>
-                          @endforeach
-                          
-                        </tbody>
-                      </table>
-                    
+                    <div class="form-group">
+                        <label for="">Selling Price</label>
+                        <input type="text" class="form-control" name="sellPrice" placeholder="Enter Selling Price" value="{{$itemdata->selling_price}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Hot Deals Discount</label>
+                        <input type="text" class="form-control" name="hotDiscount" placeholder="Enter Discount" value="{{$itemdata->hot_discount}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Item Description</label>
+                        <input type="textarea" class="form-control" name="description" placeholder="Enter Description" value="{{$itemdata->description}}">
+                    </div>
+
+                    <label for="image1">Image 01</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="image1" name="image1">
+                            <label class="custom-file-label" for="image1">Choose file</label>
+                          </div>
+                        </div>
+                        <label for="image2">Image 02</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="image2" name="image2">
+                            <label class="custom-file-label" for="image2">Choose file</label>
+                          </div>
+                        </div><br><br>
+
+                    <div class="card">
+                        <div class="card-header">
+                          <h1 class="card-title">Add Quntity</h1>
+                        </div>
+                        <div class="container">
+                        <div class="form-group">
+                            <label>Size</label>
+                            <select class="form-control select2" name="size" style="width: 100%;">
+                              <option selected="selected">{{$itemdata->size}}</option>
+                              @foreach ($size as $sizes)                                 
+                              <option>{{$sizes->size}}</option>                                      
+                              @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Colors</label>
+                            <select class="form-control select2" name="color" style="width: 100%;">
+                              <option selected="selected">{{$itemdata->color}}</option>
+                              @foreach ($color as $colors)         
+                              <option>{{$colors->name}}</option>
+                              @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Quntity</label>
+                            <input type="number" min="0" class="form-control" name="quntity" value="{{$itemdata->quntity}}" placeholder="Enter Quntity">
+                        </div>
+                        <input type="hidden" name="id" value="{{$itemdata->id}}">
+                    </div>
+                    </div>
                     <!-- /.card-body -->
-                  
-                  </div>
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-primary">update</button>
+                    </div><br>
+                </form>
               </div>
               <!-- /.card -->
             </div>
         </div>
-    
+    </div>
 </section>
 </div>
 
@@ -448,15 +477,15 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- bs-custom-file-input -->
-<script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<script src="../../dist/js/demo.js"></script>
 <!-- Page specific script -->
 
 </body>

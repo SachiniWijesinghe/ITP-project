@@ -369,14 +369,14 @@
                                 <br>
 
                                 @if (session('status'))
-                                <center>
-                                    <div class="alert alert-info alert-success" style="width:65%">
+                                
+                                    <div class="alert alert-info alert-success">
 
                                         <h5><i class="icon fas fa-info"></i>{{ session('status')}}</h5>
                                         <button type="button" class="close" data-dismiss="alert"
                                             aria-hidden="true">&times;</button>
                                     </div>
-                                </center>
+                                
                                 @endif
                                 @foreach ($errors->all() as $error)
                                 <div class="alert alert-info alert-dismissible">
@@ -453,9 +453,9 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Colors</label>
-                                                    <select class="form-control select2" name="color"
-                                                        style="width: 100%;">
-                                                        <option selected="selected"></option>@foreach ($color as
+                                                    <select class="form-control select2" name="color" style="width: 100%;">
+                                                        <option selected="selected"></option>
+                                                        @foreach ($color as
                                                         $colors)
                                                         <option>{{$colors->name}}</option>
                                                         @endforeach

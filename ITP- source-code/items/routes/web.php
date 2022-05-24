@@ -42,12 +42,9 @@ Route::post('/addcolor', 'App\Http\Controllers\colorController@store');
 
 Route::get('/deletecolor/{id}', 'App\Http\Controllers\colorController@deletecolor');
 
-Route::get('/update', function () {
-    return view('update');
-});
 
-Route::get('/test-update', function () {
-    return view('test-update');
+Route::get('/item-update', function () {
+    return view('item-update');
 });
 
 //customer item view page

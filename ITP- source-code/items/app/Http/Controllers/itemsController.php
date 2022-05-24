@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Colors;
 use Illuminate\Http\Request;
 use App\Models\Items;
+use App\Models\Sizes;
 use Illuminate\Support\Facades\File;
 
 
@@ -28,11 +31,8 @@ class itemsController extends Controller
         $items->name=$request->itemName;
         $items->cost_amount=$request->cAmount;
         $items->real_price=$request->realPrice;
-        //$items->show_real=$request->realcheck;
         $items->selling_price=$request->sellPrice;
         $items->hot_discount=$request->hotDiscount;
-        //$items->show_hot=$request->hotcheck;
-        //$items->show_newarrivels=$request->newcheck;
         $items->description=$request->description;
         $items->size=$request->size;
         $items->color=$request->color;
@@ -86,8 +86,9 @@ class itemsController extends Controller
 
     public function updateitem($id){
         $items=Items::find($id);
-
-        return view('test-update')->with('itemdata', $items);
+        $size=Sizes::all();
+        $color=Colors::all();
+        return view('item-update')->with('itemdata', $items)->with('size', $size)->with('color', $color);
     }
 
     
@@ -100,6 +101,9 @@ class itemsController extends Controller
         $sellPrice=$request->sellPrice;
         $hotDiscount=$request->hotDiscount;
         $description=$request->description;
+        $size=$request->size;
+        $color=$request->color;
+        $quntity=$request->quntity;
 
         $items=Items::find($id);
 
@@ -110,6 +114,10 @@ class itemsController extends Controller
         $items->selling_price=$sellPrice;
         $items->hot_discount=$hotDiscount;
         $items->description=$description;
+        $items->size=$size;
+        $items->color=$color;
+        $items->quntity=$quntity;
+
         if ($request->hasFile('image1')){
 
             $destination = 'upload/items/'.$items->image1;
