@@ -61,6 +61,9 @@
                 <form id="Department" action="/departmentinsert" method="post" >
                     {{csrf_field()}}
                     <div class="form-group">
+                    @if(session('message'))
+              <div class="alert alert-success">{{session('message')}}</div>
+              @endif
                         <label>Department name</label>
                         <input type="text" name="c_name" id="c_name"  class="form-control" placeholder="Enter Department Name">
                         <div  class=" alert-danger">{{$errors->first('c_name')}}
@@ -107,6 +110,7 @@
         <div class="card-body">
 
             <div class="table-responsive">
+            
 
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>

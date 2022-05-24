@@ -29,7 +29,7 @@ class DepartmentFromRequest extends FormRequest
         return $rules;
     }
     public function messages()
-    {
+    {  
         return['c_name.required' => 'Department name cannot be null... please insert a department name', ];
     }
 }

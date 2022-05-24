@@ -45,7 +45,8 @@
                     <input type="hidden" name="idDepartment"  value="{{$data['idDepartment']}}"  id="idDepartment"  class="form-control">
                     <label>Department name</label>
                     <input type="text" name="Description" value="{{$data['Description']}}" id="Description"  class="form-control" required>
-                    
+               
+                
                         <br>
                         <br>
                 <button type="submit"   class="btn btn-primary update"> Update </button>

@@ -44,7 +44,8 @@ class SizeController extends Controller
 
 
 
-       return back()->withInput();
+      // return back()->withInput();
+       return redirect("Size")->with('message','insert succusessfully');
 
 
 
@@ -61,7 +62,7 @@ class SizeController extends Controller
     {
       $search= $request['search']??"";
       if($search !=null){
-          $Data=size::where('Description','like',"$search")->get();
+          $Data=size::where('Description','like',"$search%")->get();
 
       }else{
             $Data=size::all();
@@ -106,8 +107,9 @@ class SizeController extends Controller
         $data=size::find($req->idSize);
         $data->Description=$req->Description;
        $data->save();
-       return redirect('Size'); 
+    //    return redirect('Size'); 
 
+    return redirect("Size")->with('message','Update succusessfully');
         
       
 
