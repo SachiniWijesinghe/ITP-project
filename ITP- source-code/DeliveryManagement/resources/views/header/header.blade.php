@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
-
+    <title>Document</title>
 </head>
+
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -339,7 +331,7 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Chart Report</p>
+                                    <p>Delivery Charges</p>
                                 </a>
                             </li>
                         </ul>
@@ -371,147 +363,8 @@
             <!-- /.container-fluid -->
         </section>
 
-        <div class="container">
-        <div class="text-container">
-            <center><u><h1>Report</h1></u></center>
-        </div>
-        <!--    <form method="get" action="{{ route('web.search')}}">         -->
-
-        
-    
-        <form method="get" action="{{ route('web.searchDayForReport')}}"> 
-            @csrf
-        <div class="mb-3">                      
-        <br>
-        
-        <input type="date" name="date"  class="form-control" id="orderedDate" style="width:400px;" required ><br>
-        <input type="submit" class="btn btn-primary" value="search"   >
-        
-        </div>
-         </form>
-        
-     <hr>
-       
-    @if(isset($values))
-
-    
-    <h5><B>Report for the date :{{$searchedvalue}}</B></h5>
-    <h6><B>Total Orders For The Day         : {{$values}}</B></h6>
-    
-    <h6><B>Total Sold Items For The Day     : {{$totalQTy}}</B></h6>
-    
-    <h6><B>Total Amount                     :  RS. {{$totalAmount}}.00</B></h6><br>
-    <hr>
-
-    <center><h3>Previous 6 days results</h3></center>
-    <hr>
-    <h5><B>Report for the date :{{$YESTERDAYIS}}</B></h5>
-    <h6><B>Total Orders For The Day         : {{$CounntPre1}}</B></h6>
-    
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre1}}</B></h6>
-    
-    <h6><B>Total Amount                     :  RS. {{$AmountPre1}}.00</B></h6>
-    <br>
-
-    <hr>
-    <h5><B>For the date :{{$previousday2}}</h5>
-    <h6><B>Total Orders For The Day         : {{$CounntPre2}}</B></h>
-    
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre2}}</B></h6>
-    
-    <h6><B>Total Amount                     :  RS. {{$AmountPre2}}.00</B></h6>
-    <br>
-
-    <hr>
-    <h5><B>For the date :{{$previousday3}}</B></h5>
-    <br>
-    <h6><B>Total Orders For The Day         : {{$CounntPre3}}</B></h6>
-    
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre3}}</B></h6>
-    
-    <h6><B>Total Amount                     :  RS. {{$AmountPre3}}.00</B></h6>
-    <br>
-
-     <hr>
-    <h5><B>For the date :{{$previousday4}}</B></h5>
-    <h6><B>Total Orders For The Day         : {{$CounntPre4}}</B></h6>
-    
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre4}}</B></h6>
-    
-    <h6><B>Total Amount                     :  RS. {{$AmountPre4}}.00</B></h6>
-    <br>
-
-    <hr>
-    <h5><B>For the date :{{$previousday5}}</B></h5>
-    
-    <h6><B>Total Orders For The Day         : {{$CounntPre5}}</B></h6>
-    
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre5}}</B></h6>
-    
-    <h6><B>Total Amount                     :  RS. {{$AmountPre5}}.00</B></h6>
-    <br>
-
-    <hr>
-    <h5><B>For the date :{{$previousday6}}</h5>
-    
-    <h6><B>Total Orders For The Day         : {{$CounntPre6}}</B></h6>
-    
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre6}}</B></h6>
-    
-    <h6><B>Total Amount                     :  RS. {{$AmountPre6}}.00</B></h6>
-    <br>
-    <hr><hr>
-    <h3>Last Seven days Total Orders         :{{$T0tal7daysAllOrders}}</h3>
-    <h3>Last Seven days Total Sold Items     :{{$T0tal7daystotalQty}}</h3>
-    <h3>Last Seven days Income               :Rs.{{$T0tal7daysAmount}}.00</h3>
-    <br>
-    <hr>
-    <hr>
 
 
     
-<!------------------------------------------------------------------------------------------------------------>
-
-</center>
-    @else
-     <tr><td> No Results Found</td></tr>
-  
-    @endif
-
-
-
-
-
-           </div>
-            </div>
-            <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.2.0
-            </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-        </footer>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-    </div>
-    <!-- ./wrapper -->
-
-    <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- bs-custom-file-input -->
-    <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js"></script>
-    <!-- Page specific script -->
-
-</div>
 </body>
-
 </html>

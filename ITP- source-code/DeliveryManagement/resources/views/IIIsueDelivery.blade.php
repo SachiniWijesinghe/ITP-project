@@ -327,7 +327,7 @@
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Delivery Confirmation</p>
+                  <p>Chart Report</p>
                 </a>
               </li>
             </ul>

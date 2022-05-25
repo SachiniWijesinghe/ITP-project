@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IssueDeliveryController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ChartControllerX;
 
 //meka danna oni nathnm wada na.contraller eka import krgnna methent nthnm route eka hoynna ba laravel 8 wala
 /*
@@ -85,6 +86,11 @@ Route::POST('/editpending' , [IssueDeliveryController::class,'StoreEditedPending
 
 
 Route::get('/report',[OrderController::class,'searchOrderReport'])->name('web.searchDayForReport');
+
+///PieChart----------------------------------------------------------------------------------------------
+
+Route::get('/pieX',[ChartControllerX::class,'PieChrt'])->name('web.searchSevenDaysPIE');
+
 
 
 //------------------------------------------------------------------------------test---------------------
