@@ -423,8 +423,7 @@
 
                                         <div class="form-group">
                                             <label for="">Item Description</label>
-                                            <input type="textarea" class="form-control" name="description"
-                                                placeholder="Enter Description">
+                                            <input type="textarea" class="form-control" name="description" placeholder="Enter Description">
                                         </div>
                                         <label for="image1">Image 01</label>
                                         <div class="input-group">

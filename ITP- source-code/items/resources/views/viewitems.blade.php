@@ -377,6 +377,18 @@
                 <div class="card table-responsive p-2">
                     <div class="card-header">
                       <h3 class="card-title">View all Items</h3>
+                      <div class="d-flex justify-content-end">
+                      <form action="/search" method="GET">
+                        <div class="input-group" >
+                            <input type="date" class="form-control" name="date" id="date">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                      </div>
                     </div>
                     <!-- /.card-header -->
                     

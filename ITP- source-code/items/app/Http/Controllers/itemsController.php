@@ -6,7 +6,9 @@ use App\Models\Colors;
 use Illuminate\Http\Request;
 use App\Models\Items;
 use App\Models\Sizes;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+
 
 
 class itemsController extends Controller
@@ -14,8 +16,7 @@ class itemsController extends Controller
     public function store(Request $request) {
         //dd($request->all());
         $items=new Items;
-        
-
+ 
         $this->validate($request, [
             'code'=>'required|min:4|max:6',
             'itemName'=>'required|min:4',
@@ -161,5 +162,15 @@ class itemsController extends Controller
         $items=Items::find($id);
 
         return view('itemdetailpage')->with('itemdata', $items);
+    }
+
+    public function search(Request $request){
+
+       //$date=$request->date;
+        $date = $_GET['date'];
+        //$data = DB::table('items')->where('created_at','LIKE','%'.$date.'%');
+        $data = DB::select("SELECT * FROM items WHERE updated_at BETWEEN '$date 00:00:00' AND '$date 23:59:59'");
+        return view('viewitems',['items'=>$data]);
+
     }
 }

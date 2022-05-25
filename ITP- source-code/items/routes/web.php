@@ -55,4 +55,5 @@ Route::get('/items', function () {
 
 //item details page
 Route::get('/itemdetails/{id}', 'App\Http\Controllers\itemsController@itemdetails');
+Route::get('/search', 'App\Http\Controllers\itemsController@search');      
 

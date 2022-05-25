@@ -406,19 +406,13 @@
 
                     <label for="image1">Image 01</label>
                         <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="image1" name="image1">
-                            <label class="custom-file-label" for="image1">Choose file</label>
-                          </div>
-                        </div>
-                        <label for="image2">Image 02</label>
-                        <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="image2" name="image2">
-                            <label class="custom-file-label" for="image2">Choose file</label>
-                          </div>
-                        </div><br><br>
+                          <input type="file" class="form-control" id="image1" name="image1">
 
+                        </div>
+                    <label for="image2">Image 02</label>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="image2" name="image2">
+                    </div><br><br>
                     <div class="card">
                         <div class="card-header">
                           <h1 class="card-title">Add Quntity</h1>
