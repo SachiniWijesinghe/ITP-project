@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 
 </head>
 <body  class="hold-transition sidebar-mini">
@@ -371,28 +372,31 @@
               <div class="card card-primary">
                 <div class="card-header">
                   <h3 class="card-title">Items</h3>
-                </div>
-                <!-- /.card-header -->
-
-                <div class="card table-responsive p-2">
-                    <div class="card-header">
-                      <h3 class="card-title">View all Items</h3>
-                      <div class="d-flex justify-content-end">
+                  <div class="d-flex justify-content-end">
                       <form action="/search" method="GET">
                         <div class="input-group" >
                             <input type="date" class="form-control" name="date" id="date">
                             <div class="input-group-append">
-                                <button type="submit" class="btn btn-default">
+                                <button type="submit" class="btn btn-default mr-lg-5">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
                         </div>
                     </form>
-                      </div>
+                    <button class="btn btn-success mr-lg-5" onclick="generatePDF()">Download as PDF</button>
                     </div>
+                </div>
+                <!-- /.card-header -->
+
+                <div class="card table-responsive p-2">
+                    
+                    <div id="invoice"><br>
+                    <center><h4 class="">Item Details</h4></center>
+                    
                     <!-- /.card-header -->
                     
-                      <table class="table table-bordered ">
+                     
+                      <table class="table table-bordered " >
                         <thead>
                           <tr>
                             <th>code</th>
@@ -410,7 +414,9 @@
                             <th>Action</th>
                           </tr>
                         </thead>
+                        
                         <tbody>
+                        
                           @foreach ($items as $item)
                           <tr>
                             <td>{{$item->code}}</td>
@@ -430,16 +436,18 @@
                             
                           </tr>
                           @endforeach
-                          
+                        
                         </tbody>
+                        
                       </table>
-                    
+                      </div>
                     <!-- /.card-body -->
                   
                   </div>
               </div>
               <!-- /.card -->
             </div>
+            
         </div>
     
 </section>
@@ -458,6 +466,15 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
+<script>
+    function generatePDF() {
+      // Choose the element that our invoice is rendered in.
+      const element = document.getElementById('invoice');
+      // Choose the element and save the PDF for our user.
+      html2pdf().from(element).save();
+    }
+  </script>
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>

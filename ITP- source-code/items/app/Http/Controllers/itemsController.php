@@ -6,6 +6,7 @@ use App\Models\Colors;
 use Illuminate\Http\Request;
 use App\Models\Items;
 use App\Models\Sizes;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
@@ -173,4 +174,12 @@ class itemsController extends Controller
         return view('viewitems',['items'=>$data]);
 
     }
+
+   /* public function createPDF () {
+        // Retrieve all products from the db
+        $items = Items::all();
+        $pdf = DomPDFPDF::loadView('viewitems',compact('items'));
+        return $pdf->download ('item_Details.pdf');
+    }*/
+  
 }

@@ -19,11 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->float('cost_amount');
             $table->float('real_price');
-            $table->boolean('show_real')->default(0);
             $table->float('selling_price');
             $table->float('hot_discount');
-            $table->boolean('show_hot')->default(0);
-            $table->boolean('show_newarrivels')->default(0);
             $table->string('description');
             $table->string('size')->default('S');
             $table->string('color')->default('Red');
