@@ -224,19 +224,19 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/addAdmin" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Add Admin</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/addPrivileges" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>User Privileges</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/searchAdmin" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Search Admin</p>
                                 </a>
