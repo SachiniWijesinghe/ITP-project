@@ -87,11 +87,11 @@ Route::POST('/editpending' , [IssueDeliveryController::class,'StoreEditedPending
 
 Route::get('/report',[OrderController::class,'searchOrderReport'])->name('web.searchDayForReport');
 
-///PieChart----------------------------------------------------------------------------------------------
+///Charts----------------------------------------------------------------------------------------------
 
-Route::get('/pieX',[ChartControllerX::class,'PieChrt'])->name('web.searchSevenDaysPIE');
+//Route::get('/pieX',[ChartControllerX::class,'PieChrt'])->name('web.searchSevenDaysPIE');
 
-
+Route::get('chart/',[ChartControllerX::class,'ALLCHARTS']);
 
 //------------------------------------------------------------------------------test---------------------
 Route::get('Test/',[OrderController::class,'Test']);

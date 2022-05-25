@@ -77,5 +77,18 @@ class ChartControllerX extends Controller
 
        return view('pieChrtX',compact('$chartData'));
      }
+
+
    }
+
+
+//getting charts--------------------------------------------------------------------------------------------------
+public function ALLCHARTS(){
+
+
+         return view('Allcharts');
+
+
+    }
+
 }
