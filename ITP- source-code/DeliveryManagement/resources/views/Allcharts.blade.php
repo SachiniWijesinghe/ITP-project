@@ -8,12 +8,7 @@
          }
 
 
-        // $sql2="select issueDate, Count(status) as TotalDelivered from issue_deliveries where status like '%delivered%'  GROUP BY issueDate ";
-        // $res2=mysqli_query($conn,$sql2);                                                 
-        // while($row= mysqli_fetch_assoc($res2)){
-        //    $datapoints2[]=array("label"=>$row['issueDate'],"y"=>$row['TotalDelivered']);
-        // }
-
+       
 ?>
 
 
@@ -112,29 +107,8 @@
     </section> 
 
 
-<!---
-   <section class="content" style ="margin-left:20px;margin-right:20px;margin-top:40px;">
-    <select name ="chart" onchange ="myfunction2()" class ="form-control" id="chart2" style ="width:120px;">
-    <option value="pie">Pie Chart</option>
-    <option value="column">Column chart</option>
-    <option value="bar">Bar chart</option>
-    <option value="pyramid">pyramid chart</option>
-    <option value="doughnut">doughnut chart</option>
-    </select>
-    
-    <div class="product-index " alighn="right" style= "margin-top:40px">
-    <div  id="chartContainer2"  style= "height :400px; width:100%;">
-    </div>
-    </div>
-    </section> 
-        -->
 
-
-
-
-
-
- <script>
+<script>
  function myfunction() 
  {
      var chartType =document.getElementById("chart").value;
@@ -164,38 +138,7 @@ chart.render();
 }
 </script> 
 
-<!----
-<script>
- function myfunction2() 
- {
-     var chartType =document.getElementById("chart2").value;
 
-var chart = new CanvasJS.Chart("chartContainer2", {
-	animationEnabled: true,
-	theme: "dark1", // "light1", "light2", "dark1", "dark2"
-	title:{
-		text: "No of Pending Deliveries According to the Date"
-	},
-	axisY: {
-		title: "NO of Pendings"
-	},
-    axisX: {
-		title: "Date"
-	},
-	data: [{        
-		type: chartType,
-		showInLegend: true, 
-    
-		yValueFormatString: "#,##0\"\"",
-        indexLabel:"{label} ({y} CountX )",
-		dataPoints: <//?php echo json_encode($datapoints2,JSON_NUMERIC_CHECK); ?>
-	}]
-});
-chart.render();
-}
-
-</script> 
--->
 </div>
 
 </body> 

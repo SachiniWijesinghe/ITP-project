@@ -106,6 +106,7 @@ function searchOrderReport(Request $request){
         $timestampForGivenDate = strtotime ( $givenD );
         
         $previousday4= date($requireDateFormat,strtotime ( $englishText , $timestampForGivenDate )) ; 
+        
         /*$CounntPre4 = order::where('date','LIKE','%'.$previousday4.'%')->count();
         $totalQtPre4=order::where('date','LIKE','%'.$previousday4.'%')->sum('totalQty');
         $AmountPre4=order::where('date','LIKE','%'.$previousday4.'%')->sum('totalAmount');

@@ -383,6 +383,16 @@
 				
 <!---------------------------------------------------------------->
 				
+@if(session('message'))
+
+<div class="alert alert-success">{{session('message')}}</div>
+
+@endif
+
+
+
+
+
 	    <form method="post" action="/SaveIssueDeliveryFromSearchFile">
             @csrf
        <!-- <div class="mb-3">
