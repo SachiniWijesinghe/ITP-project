@@ -20,6 +20,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<!------------------grt a pdf--------------------------->
+
+<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>HTML-to-PDF Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    <script>
+    function generatePDF() {
+      // Choose the element that our invoice is rendered in.
+      const element = document.getElementById('invoice');
+      // Choose the element and save the PDF for our user.
+      html2pdf().from(element).save();
+    }
+    </script>
+<!----------------------------------------------------->
+
+
+
   <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,9 +70,21 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    
 </head>
+
+
+
+
+
+
   
 <body>
-
+ <!-----------------------------------------get pdf--------------------------------------------------->
+ <button onclick="generatePDF()">Download as PDF</button>
+<div id="invoice">
+<center><h1>Report</h1></center>
+<hr>
+   
+    <!------------------------------------------------------------------------------------------------------>
 
 
 
@@ -162,7 +196,7 @@ chart.render();
 
 </script> 
 -->
-
+</div>
 
 </body> 
 
