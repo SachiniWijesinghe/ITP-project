@@ -380,22 +380,24 @@
     <br>
    <center> <h1>Search Order</h1></center>
     <hr>
-   <!-- <a href ={{"/viewallissueDelivery"}} class="btn-success">View All deliveries</a>  after issuing order we can see it in all delivery records-->
+   
+
 
 </div>
 
 <form method="get" action="{{ route('web.search')}}">
     @csrf
 <div class="mb-3">
-<br>
+<br><!--class="form-control"-->
 
-<!--class="form-control"-->
 <input type="date" name="QorderedDate"   id="orderedDate"  style="width:400px;height:40px;" required >
-
 <input type="submit" class="btn btn-primary" value="search" >
 
 </div>
- </form>
+</form>
+
+
+
 </dev>
 
 <br><br>
@@ -413,9 +415,11 @@
 <th scope="col">Order ID</th>
 <th scope="col">Date</th>
 <th scope="col">Total Quntity</th>
+<th scope="col">Total </th>
+<th scope="col">Delivery Fee</th>
 <th scope="col">Total Amount</th>
 <th scope="col">Customer ID</th>
-<th scope="col">Cart ID</th>
+<!--<th scope="col">Cart ID</th>-->
 <th scope="col">Issue DeliveryS</th>
 </tr>
 </thead>
@@ -426,9 +430,11 @@
 <td scope="col">{{$dataa->id  }}    </td>
 <td scope="col">{{$dataa ->date}}</td>
 <td scope="col">{{$dataa->totalQty}}</td>
+<td scope="col">{{$dataa->total}}</td>
+<td scope="col">{{$dataa->deliveryFee}}</td>
 <td scope="col">{{$dataa->totalAmount}}</td>
 <td scope="col">{{$dataa->idCustomer}}</td>
-<td scope="col">{{$dataa->idCart}}</td>
+
 
 
 <td><a href =  "issue/{{$dataa->id}}" class="btn btn-info">ISSUE DELIVERY</a></td>
