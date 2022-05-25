@@ -14,6 +14,28 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
+
+
+    <!------------------grt a pdf--------------------------->
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>HTML-to-PDF Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    <script>
+    function generatePDF() {
+      // Choose the element that our invoice is rendered in.
+      const element = document.getElementById('invoice');
+      // Choose the element and save the PDF for our user.
+      html2pdf().from(element).save();
+    }
+    </script>
+    <!----------------------------------------------------->
+
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -391,82 +413,90 @@
          </form>
         
      <hr>
+
+     <!-----------------------------------------get pdf--------------------------------------------------->
+<button onclick="generatePDF()">Download as PDF</button>
+<div id="invoice">
+<h1>Report</h1>
+<hr>
+   
+    <!------------------------------------------------------------------------------------------------------>
        
     @if(isset($values))
 
     
-    <h5><B>Report for the date :{{$searchedvalue}}</B></h5>
-    <h6><B>Total Orders For The Day         : {{$values}}</B></h6>
+        <h5><B>Report for the date :{{$searchedvalue}}</B></h5>
+        <h6><B>Total Orders For The Day: {{$values}}</B></h6>
     
-    <h6><B>Total Sold Items For The Day     : {{$totalQTy}}</B></h6>
+        <h6><B>Total Sold Items For The Day: {{$totalQTy}}</B></h6>
     
-    <h6><B>Total Amount                     :  RS. {{$totalAmount}}.00</B></h6><br>
-    <hr>
+        <h6><B>Total Amount:  RS. {{$totalAmount}}.00</B></h6><br>
+        <hr>
 
-    <center><h3>Previous 6 days results</h3></center>
-    <hr>
-    <h5><B>Report for the date :{{$YESTERDAYIS}}</B></h5>
-    <h6><B>Total Orders For The Day         : {{$CounntPre1}}</B></h6>
+        <center><h3>Previous 6 days results</h3></center>
+        <hr>
+        <h5><B>Report for the date :{{$YESTERDAYIS}}</B></h5>
+        <h6><B>Total Orders For The Day: {{$CounntPre1}}</B></h6>
     
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre1}}</B></h6>
+        <h6><B>Total Sold Items For The Day: {{$totalQtPre1}}</B></h6>
     
-    <h6><B>Total Amount                     :  RS. {{$AmountPre1}}.00</B></h6>
-    <br>
+        <h6><B>Total Amount:  RS. {{$AmountPre1}}.00</B></h6>
+        <br>
 
-    <hr>
-    <h5><B>For the date :{{$previousday2}}</h5>
-    <h6><B>Total Orders For The Day         : {{$CounntPre2}}</B></h>
+        <hr>
+        <h5><B>For the date :{{$previousday2}}</h5>
+        <h6><B>Total Orders For The Day: {{$CounntPre2}}</B></h>
     
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre2}}</B></h6>
+        <h6><B>Total Sold Items For The Day: {{$totalQtPre2}}</B></h6>
     
-    <h6><B>Total Amount                     :  RS. {{$AmountPre2}}.00</B></h6>
-    <br>
+        <h6><B>Total Amount :  RS. {{$AmountPre2}}.00</B></h6>
+        <br>
 
-    <hr>
-    <h5><B>For the date :{{$previousday3}}</B></h5>
-    <br>
-    <h6><B>Total Orders For The Day         : {{$CounntPre3}}</B></h6>
+        <hr>
+        <h5><B>For the date :{{$previousday3}}</B></h5>
+        <br>
+        <h6><B>Total Orders For The Day  : {{$CounntPre3}}</B></h6>
     
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre3}}</B></h6>
+        <h6><B>Total Sold Items For The Day : {{$totalQtPre3}}</B></h6>
     
-    <h6><B>Total Amount                     :  RS. {{$AmountPre3}}.00</B></h6>
-    <br>
+        <h6><B>Total Amount :  RS. {{$AmountPre3}}.00</B></h6>
+        <br>
 
-     <hr>
-    <h5><B>For the date :{{$previousday4}}</B></h5>
-    <h6><B>Total Orders For The Day         : {{$CounntPre4}}</B></h6>
+        <hr>
+        <h5><B>For the date :{{$previousday4}}</B></h5>
+        <h6><B>Total Orders For The Day : {{$CounntPre4}}</B></h6>
     
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre4}}</B></h6>
+        <h6><B>Total Sold Items For The Day : {{$totalQtPre4}}</B></h6>
     
-    <h6><B>Total Amount                     :  RS. {{$AmountPre4}}.00</B></h6>
-    <br>
+        <h6><B>Total Amount :  RS. {{$AmountPre4}}.00</B></h6>
+        <br>
 
-    <hr>
-    <h5><B>For the date :{{$previousday5}}</B></h5>
+        <hr>
+        <h5><B>For the date :{{$previousday5}}</B></h5>
     
-    <h6><B>Total Orders For The Day         : {{$CounntPre5}}</B></h6>
+        <h6><B>Total Orders For The Day : {{$CounntPre5}}</B></h6>
     
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre5}}</B></h6>
+        <h6><B>Total Sold Items For The Day : {{$totalQtPre5}}</B></h6>
     
-    <h6><B>Total Amount                     :  RS. {{$AmountPre5}}.00</B></h6>
-    <br>
+        <h6><B>Total Amount :  RS. {{$AmountPre5}}.00</B></h6>
+        <br>
 
-    <hr>
-    <h5><B>For the date :{{$previousday6}}</h5>
+        <hr>
+        <h5><B>For the date :{{$previousday6}}</h5>
     
-    <h6><B>Total Orders For The Day         : {{$CounntPre6}}</B></h6>
+        <h6><B>Total Orders For The Day: {{$CounntPre6}}</B></h6>
     
-    <h6><B>Total Sold Items For The Day     : {{$totalQtPre6}}</B></h6>
+        <h6><B>Total Sold Items For The Day : {{$totalQtPre6}}</B></h6>
     
-    <h6><B>Total Amount                     :  RS. {{$AmountPre6}}.00</B></h6>
-    <br>
-    <hr><hr>
-    <h3>Last Seven days Total Orders         :{{$T0tal7daysAllOrders}}</h3>
-    <h3>Last Seven days Total Sold Items     :{{$T0tal7daystotalQty}}</h3>
-    <h3>Last Seven days Income               :Rs.{{$T0tal7daysAmount}}.00</h3>
-    <br>
-    <hr>
-    <hr>
+       <h6><B>Total Amount:  RS. {{$AmountPre6}}.00</B></h6>
+        <br>
+       <hr><hr>
+       <h3>Last Seven days Total Orders:{{$T0tal7daysAllOrders}}</h3>
+       <h3>Last Seven days Total Sold Items:{{$T0tal7daystotalQty}}</h3>
+       <h3>Last Seven days Income :Rs.{{$T0tal7daysAmount}}.00</h3>
+       <br>
+       <hr>
+       <hr>
 
 
     
@@ -478,7 +508,7 @@
   
     @endif
 
-
+</div>
 
 
 
