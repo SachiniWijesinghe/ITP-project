@@ -14,6 +14,24 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
+
+<!----------------------sweet alert---------------------------------------------------------------------->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+
+
+
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -383,9 +401,13 @@
 
         <br><br>
 <center><h1>View All Delivery Issues</h1><center>
-<!--<a href ={{"/search"}} class="btn-success" style="text-decoration: none;">go to search -></a><br>-->
-<!--<a href ={{"/issueDelivery"}} class="btn-success" style="text-decoration: none;">Add Delivery-></a>-->  <!--add additional diliveries--><br>
-<!--<a href ={{"/viewPendingDel"}} class="btn-success " style="text-decoration: none;">view Pending Deliveries-></a><br> -->
+
+@if(session('message'))
+
+<div class="alert alert-success">{{session('message')}}</div>
+
+@endif
+
 <br>
 <table class="table">
   <thead class="thead-dark">
@@ -415,7 +437,13 @@
      
       <td>
           <a href ={{"edit/".$dataa['id']}} class="btn btn-primary" >Edit</a>
-          <a href ={{"delete/".$dataa['id']}} class="btn btn-danger" >Delete</a>
+          <!--<a href ={{"delete/".$dataa['id']}} class="btn btn-danger" >Delete</a>-->
+
+
+          <button type="button"class="btn btn-danger delete " data-id ="{{ $dataa->id}}" >Delete</button>
+
+
+
           </td>
       </tr>
     @endforeach       
@@ -438,6 +466,62 @@
 
 
 
+<script>
+$(document).ready(function () {
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+$('.delete').click(function (e) { 
+  e.preventDefault();
+ //var idDepartment= $(this).closest("tr").find('.serdelete_val').val();
+  var id=$(this).attr('data-id')
+ // var description=$(this).attr('data-name')
+ // alert(idDepartment);
+ 
+
+  swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this imaginary file!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    
+    var data ={"_token":$('input[name="csrf-token"]').val(),
+      "id":id,
+    };
+
+    $.ajax({
+      type: "GET",
+      url: 'delete/'+id,
+      data: data,
+  
+      success: function (response) {
+
+        swal(response.states, {
+      icon: "success",
+    }).then((result)=>{
+
+      location.reload();    
+
+    });
+        
+      }
+    });
+
+  } 
+});
+
+ });
+  
+});
+
+</script>
 
 
 
@@ -448,24 +532,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
+  </div>
 </div>
 
 

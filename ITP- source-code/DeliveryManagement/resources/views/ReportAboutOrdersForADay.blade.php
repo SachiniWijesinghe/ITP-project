@@ -417,11 +417,11 @@
      <!-----------------------------------------get pdf--------------------------------------------------->
 <button onclick="generatePDF()">Download as PDF</button>
 <div id="invoice">
-<h1>Report</h1>
+<h5>Report</h5>
 <hr>
    
     <!------------------------------------------------------------------------------------------------------>
-       
+    <section style ="margin-left:100px;margin-right:100px;">  
     @if(isset($values))
 
     
@@ -507,6 +507,8 @@
      <tr><td> No Results Found</td></tr>
   
     @endif
+
+  </section>
 
 </div>
 

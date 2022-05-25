@@ -49,9 +49,13 @@ class IssueDeliveryController extends Controller
     }
 
     function delete($id){
-        $data =IssueDelivery::find($id);
+        // $data =IssueDelivery::find($id);
+        //$data -> delete();
+        //return redirect('viewallissueDelivery');
+
+        $data=IssueDelivery::findOrFail($id);
         $data -> delete();
-        return redirect('viewallissueDelivery');
+        return response()->json(['states'=>'Deelivery record Deleted successfully']);//---------------------avishka
     }
 
     function edit($id){
@@ -79,7 +83,7 @@ class IssueDeliveryController extends Controller
      $EditedData->idCustomer=$request->IdCustomer;
 
      $EditedData->save();
-         return redirect('viewallissueDelivery');  
+         return redirect('viewallissueDelivery')->with('message','Updated successfully');  
 
 
    }
@@ -117,7 +121,8 @@ public function StoreDataFromSearchedResults(Request $request){
     $issue->idCustomer=$request->IdCustomer;
 
     $issue->save();
-    //return redirect()->back();  //apahu klin pituwatama enna me
+    return redirect()->back()->with('message','Inserted successfully');  //apahu klin pituwatama enna me
+    //
     return redirect('/search');
 }
 //meka wge uda function eka hduwe me ordercontroller eke eka
@@ -181,7 +186,7 @@ $EditedData= IssueDelivery::find($request->id);
  $EditedData->idCustomer=$request->IdCustomer;
 
  $EditedData->save();
- return redirect('/viewPendingDel'); 
+ return redirect('/viewPendingDel')->with('message','Updated successfully');  ; 
 
 
 }
