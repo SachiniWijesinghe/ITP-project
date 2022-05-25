@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-//use App\Models\Admin_Privilege;
+
+use App\Models\Admin;
+use App\Models\Admin_Privilege;
 
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\Password;
 use Crypt;
+
+use View;
 
 class AddAdminController extends Controller
 {
@@ -55,5 +59,28 @@ class AddAdminController extends Controller
     public function add(Request $req)
     {
         return $req->input();
+    }
+
+    public function show()
+    {
+        $data = Admin::all();
+        $data1 = Admin_Privilege::all();
+        return view('addAdmin',['admin'=>$data,'data1'=>$data1]);
+        
+        //return view('addAdmin',['data'=>$data]);
+    }
+
+    public function addData(Request $req)
+    {
+        $query = DB::table('admin_has_admin_privileges')->insert([
+            'admin_id'=>$req->input('id'),
+            'admin_privileges_id'=>$req->input('role'),
+        ]);
+
+        if($query){
+            return back()->with('success','Data have been successfully inserted');
+        }else{
+            return back()->with('fail','Something went wrong');
+        }
     }
 }
