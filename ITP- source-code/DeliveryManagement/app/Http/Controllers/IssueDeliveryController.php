@@ -14,6 +14,18 @@ class IssueDeliveryController extends Controller
     //me function eka   //me $request eken ara form eken dena data allagnna puluwn
     public function Store(Request $request){
         $issue=new IssueDelivery;
+
+
+        $this->validate($request,[
+
+            'TotalQt' =>'required|min:3|max:6',
+            'TotalAmount' =>'required',
+            'IssueDate' =>'required',
+            'DeliveredDate' =>'required',
+            'Status' =>'required|min:5|max:10',
+            'IdOrder' =>'required',
+            'IdCustomer' =>'required',
+        ]);
       
         $issue->totalQty=$request->TotalQt;
         $issue->totalAmount=$request->TotalAmount;
@@ -72,19 +84,21 @@ class IssueDeliveryController extends Controller
 
    }
 
-   /////////////////////////////////////////////////////////////////////////////
 
    //search eken passe krpu tika mn  //edit widihta data gththa order eken gththu data tika form ekaka pennanwa
 
    function issueDel($id){
-    $row=DB::table('orders')->where('id',$id)->first();
+    $row=DB::table('orderss')->where('id',$id)->first();
     $data=['info'=>$row,
             'title'=>'ISSUE DELIVERY'
                      ];
  
-    return view('IIIsueDelivery',$data);   ////------------------------methana wrddak tibboth 3.40 min blnna
+    return view('IIIsueDelivery',$data);
     
 }
+
+//-----------------------------------------------------------------------------------------------------------------------------//issue delivery cart id eka ayn kla <!--<td scope="col">{{$dataa->idCart}}</td>-->
+
 
 //searched data form ekt ghn adupadu dala ita passe database ekt insert krnna
 //  StoreDataFromSearchedResults
@@ -132,8 +146,10 @@ public function pending(){
 
     // return view('viewallissueDelivery');                     view eka pennanawad blnna
    // return IssueDelivery::all();                               ok fetch all data 
-//now return key and value paires   below IssueDelivery is model name
-        $status='pending';
+  //now return key and value paires   below IssueDelivery is model name
+       
+  
+  $status='pending';
         $data = IssueDelivery::where('status','LIKE','%'.$status.'%')->get();
         return view('pendingDeliveries',['members'=>$data]);  //here key and value  member and $data.now our data is passed to blade file.view ekt pss wenwa
  }
@@ -141,7 +157,7 @@ public function pending(){
 
          
 function editpendingX($id){
-    echo 'qqqqqqqqqqqqqqqqqqqqqq';   
+    
     $dataX =IssueDelivery::find($id);
     //model name       //get id form url
 
