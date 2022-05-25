@@ -6,6 +6,7 @@ use App\Http\Controllers\AddPrivilegesController;
 use App\Http\Controllers\AddAdminController;
 
 use App\Models\Admin_Privilege;
+use App\Models\Admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,10 @@ Route::get('/searchAdmin', function () {
     return view('searchAdmin');
 });
 
+// Route::get('/addAdmin', function () {
+//     return view('addAdmin');
+// });
+
 // Route::get('/addAdminPrivileges', function () {
 //     return view('addAdminPrivileges');
 // });
@@ -50,6 +55,9 @@ Route::post('update',[AddPrivilegesController::class,'update']);
 Route::post('registerAdmin',[AddAdminController::class,'getData']);
 //Route::post('addAdmin',[AddAdminController::class,'add']);
 //Route::view('addAdmin','addAdmin');
+
+Route::get('addAdmin',[AddAdminController::class,'show']);
+Route::post('addAdmin',[AddAdminController::class,'addData']);
 
 Auth::routes();
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin_Privilege;
+use App\Models\Admin;
 use View;
 
 class AddPrivilegesController extends Controller

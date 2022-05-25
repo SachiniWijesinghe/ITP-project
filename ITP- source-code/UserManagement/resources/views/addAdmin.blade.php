@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
     <style>
         table {
             font-family: arial, sans-serif;
@@ -364,7 +365,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Add Admin Privileges</h1>
+                        <h1>Add Admin</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -378,108 +379,74 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Permissions Granted to Admin Members</h3>
+                                <h3 class="card-title">New Admin</h3>
                             </div>
                             <!-- /.card-header -->
-                        </div>
+                            <!-- form start -->
+                        @if(Session::get('success'))
+                            <div class="alert alert-success">
+                                {{Session::get('success')}}
+                            </div>
+                        @endif
+
+                        @if(Session::get('fail'))
+                            <div class="alert alert-danger">
+                                {{Session::get('fail')}}
+                            </div>
+                        @endif       
+
+                    <form action="addAdmin" method="post">
+                        @csrf 
                         <table>
                             <tr>
                                 <th>ID</th>
+                                <th>Full Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
                                 <th>Role</th>
-                                <th>Add Admin</th>
-                                <th>Add Admin Privileges</th>
-                                <th>Add Items</th>
-                                <th>Add Category</th>
-                                <th>Delivery Management</th>
-                                <th>Update</th>
-                                <th>Delete</th>
+                                <th>Save</th>
                             </tr>
                             <tbody>
-                                @foreach($data as $data1)
+                                @foreach($admin as $admin)
                                 <tr>
-                                    <td>
-                                        {{$data1->id}}
-                                    </td>
-                                    <td>
-                                        {{$data1->role}}
-                                    </td>
-                                    <td>
-                                        {{$data1->addAdmin}}
-                                    </td>
-                                    <td>
-                                        {{$data1->addAdminPrivileges}}
-                                    </td>
-                                    <td>
-                                        {{$data1->addItems}}
-                                    </td>
-                                    <td>
-                                        {{$data1->addCategory}}
-                                    </td>
-                                    <td>
-                                        {{$data1->deliveyManagement}}
-                                    </td>
-                                    <td>
-                                        <a href="click_edit/{{$data1->id}}" class="btn btn-success">Edit</a>
-                                    </td>
-                                    <td>
-                                        <a href="click_delete/{{$data1->id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
-                                    </td>
-                                </tr>      
+                                <td><input type="text" id="id" name="id" value="{{$admin['id']}}"></td>
+                                <td>{{$admin['fullName']}}</td>
+                                <td>{{$admin['username']}}</td>
+                                <td>{{$admin['email']}}</td>
+                                <td>
+                                    <select name="role">
+                                        @foreach($data1 as $row)
+                                            <option value="{{$row->id}}">{{$row->role}}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td><button type="submit" class="btn btn-info">Save</button></td>
+                            </tr>      
                                 @endforeach
                             </tbody>
                         </table><br><br>
-                        <button type="submit" class="btn btn-info" value="Button1" id="toggleVisibilityButton">Add Role</button>
-                        <script>
-                            document.getElementById("toggleVisibilityButton").addEventListener("click", function(button) {    
-                            if (document.getElementById("displaytable").style.display === "none") document.getElementById("displaytable").style.display = "block";
-                            else document.getElementById("displaytable").style.display = "none";
-                            });
-                        </script><br><br><br>
-                        <form action = "addPrivileges" method="POST">
-                            @csrf
-                        <table  id="displaytable" style="display:none" width="100%" cellpadding="1" cellspacing="0">
-                            <tr>
-                                    <td class="lbl">Role</td>
-                                    <td class="lbl">Privileges</td>
-                                    <td class="lbl">Save</td>
-                                    </tr>
-                            <tr>
-                                    <td><input type="text" id="role" name="role" placeholder="Enter Role Name" required></td>
-                                    <td>
-                                        <input type="checkbox" id="pv1" name="pv1">
-                                        <label>Add admin</label><br>
-                                        <input type="checkbox" id="pv2" name="pv2">
-                                        <label>Add Admin Privileges</label><br>
-                                        <input type="checkbox" id="pv3" name="pv3">
-                                        <label>Add Items</label><br>
-                                        <input type="checkbox" id="pv4" name="pv4">
-                                        <label>Add Category</label><br>
-                                        <input type="checkbox" id="pv5" name="pv5">
-                                        <label>Delivery Management</label><br><br>
-                                    </td>
-                                    <td><button type="submit" class="btn btn-primary">Save</button></td>
-                                    </tr>
-                        </table> 
-                        </form>
+                    </form>   
                     </div>
+                    <!-- /.card -->
                 </div>
             </div>
-        </section>
     </div>
+    </section>
+</div>
 
 
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.2.0
-        </div>
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+<footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+        <b>Version</b> 3.2.0
+    </div>
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+</footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
