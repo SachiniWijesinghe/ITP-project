@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\order;
 
-
+use App\Http\Requests\DeliveryFormRequest;
 use Illuminate\Http\Request;     
 use App\Models\IssueDelivery;      //this is for interact data by using model 
 use Illuminate\Support\Facades\DB;//this is for interact data by using query builder
@@ -109,7 +109,7 @@ class IssueDeliveryController extends Controller
 
 
 
-public function StoreDataFromSearchedResults(Request $request){
+public function StoreDataFromSearchedResults(DeliveryFormRequest $request){
     $issue=new IssueDelivery;
   
     $issue->totalQty=$request->TotalQt;
@@ -122,8 +122,7 @@ public function StoreDataFromSearchedResults(Request $request){
 
     $issue->save();
     return redirect()->back()->with('message','Inserted successfully');  //apahu klin pituwatama enna me
-    //
-    return redirect('/search');
+    // return redirect('/search');
 }
 //meka wge uda function eka hduwe me ordercontroller eke eka
 /*function searchOrderX(Request $request){
@@ -164,7 +163,7 @@ public function pending(){
 function editpendingX($id){
     
     $dataX =IssueDelivery::find($id);
-    //model name       //get id form url
+           //model name       //get id form url
 
     return view('EditPendingIssueDelivery',['data'=>$dataX]);
 }

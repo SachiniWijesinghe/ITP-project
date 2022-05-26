@@ -389,8 +389,7 @@
 
 @endif
 
-
-
+                 
 
 
 	    <form method="post" action="/SaveIssueDeliveryFromSearchFile">
@@ -421,12 +420,12 @@
 	   
 	    <div class="form-group">
         <label for="issueDate" class="form-label">Issue Date         :</label>
-        <input type="date" id="birthday"        class="form-control" name="IssueDate" required>
+        <input type="date" id="IssueDate"        class="form-control" name="IssueDate" >
         </div>
 		
 	    <div class="form-group">
         <label for="deliveredDate" class="form-label">Delivered Date      :</label>
-        <input type="date" id="birthday"        class="form-control" name="DeliveredDate" required>
+        <input type="date" id="DeliveredDate"        class="form-control" name="DeliveredDate" >
         </div>
         
         <div class="form-group">
@@ -447,6 +446,20 @@
          </form>
 		 
 		 
+
+
+
+
+ @if($errors->any())
+
+<ul class="alert alert-warning">
+ @foreach($errors->all() as $error)
+ 
+ <li>{{$error}}</li>
+ @endforeach
+</ul>
+
+@endif
 		 
 		 
 		 <!------------------------------------------------------------------------------------------------------------------------------------------>
