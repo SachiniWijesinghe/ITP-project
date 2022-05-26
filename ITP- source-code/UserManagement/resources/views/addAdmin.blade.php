@@ -424,7 +424,7 @@
                             </tr>      
                                 @endforeach
                             </tbody>
-                        </table><br><br>
+                        </table>
                     </form>   
                     </div>
                     <!-- /.card -->

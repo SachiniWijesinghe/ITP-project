@@ -53,9 +53,9 @@
                     <i class="fas fa-search"></i>
                 </a>
                 <div class="navbar-search-block">
-                    <form class="form-inline">
+                    <form class="form-inline" action="{{route('web.search')}}" method="GET">
                         <div class="input-group input-group-sm">
-                            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                            <input class="form-control form-control-navbar" name="query" type="search" placeholder="Search" aria-label="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-navbar" type="submit">
                                     <i class="fas fa-search"></i>
@@ -382,17 +382,32 @@
                             </div>
                             <!-- /.card-header -->
                         </div>
-                        <table>
+                        @if(isset($admin))
+                        <table class="table table hover">
                             <tr>
                                 <th>ID</th>
                                 <th>Full Name</th>
                                 <th>Username</th>
                                 <th>Email</th>
-                                <th>Role</th>
-                                <th>Update</th>
                                 <th>Delete</th>
                             </tr>
+                            <tbody>
+                                @if(count($admin)>0)
+                                @foreach($admin as $admin)
+                                <tr>
+                                <td>{{$admin->id}}</td>
+                                <td>{{$admin->fullName}}</td>
+                                <td>{{$admin->username}}</td>
+                                <td>{{$admin->email}}</td>
+                                <td><a href="click_delete/{{$admin->id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
+                            </tr>      
+                                @endforeach
+                                @else
+                                <tr><td>No result found!</td></tr>
+                                @endif
+                            </tbody>
                         </table>
+                        @endif
                     </div>
                 </div>
             </div>
