@@ -372,6 +372,11 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Customers</h1>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <button  class="btn btn-success" onclick="generatePDF()">Download as PDF</button>
+
                     </div>
                 </div>
             </div>
@@ -381,45 +386,53 @@
 
 
 
+
+
+
         <div class="card-body table-responsive p-0" style="height: 400px;">
-                        <table class="table table-head-fixed text-nowrap">
-                            <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col"> email</th>
-                                <th scope="col">Password</th>
-                                <th scope="col">Contact No</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">City</th>
-                                <th scope="col">ZIP</th>
-                            </tr>
-                            </thead>
-                            @foreach($candidates as $candidates)
-                                <tbody>
-                                <tr>
 
-                                    <td>{{$candidates['id']}}</td>
-                                    <td>{{$candidates['Fname']}}</td>
-                                    <td>{{$candidates['Lname']}}</td>
-                                    <td>{{$candidates['email']}}</td>
-                                    <td>{{$candidates['password']}}</td>
-                                    <td>{{$candidates['contactNo']}}</td>
-                                    <td>{{$candidates['Address']}}</td>
-                                    <td>{{$candidates['city']}}</td>
-                                    <td>{{$candidates['ZIP']}}</td>
-                                    <td><a href="click-delete/{{$candidates->id}}  " class="btn btn-danger">Delete</a></td>
-                                </tr>
+            <div id="invoice">
+            <table class="table table-head-fixed text-nowrap">
+                <thead>
 
-                                </tbody>
-                            @endforeach
-                        </table>
-                    </div>
+                <tr>
 
 
-        
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col"> email</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">ZIP</th>
+                    <th scope="col">Contact No</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Password</th>
 
+
+                </tr>
+                </thead>
+                @foreach($candidates as $candidates)
+                    <tbody>
+                    <tr>
+
+                        <td>{{$candidates['id']}}</td>
+                        <td>{{$candidates['Fname']}}</td>
+                        <td>{{$candidates['Lname']}}</td>
+                        <td>{{$candidates['email']}}</td>
+                        <td>{{$candidates['Address']}}</td>
+                        <td>{{$candidates['ZIP']}}</td>
+                        <td>{{$candidates['contactNo']}}</td>
+                        <td>{{$candidates['city']}}</td>
+                        <td>{{$candidates['password']}}</td>
+
+                        <td><a href="click-delete/{{$candidates->id}}  " class="btn btn-danger">Delete</a></td>
+                    </tr>
+
+                    </tbody>
+                @endforeach
+            </table>
+        </div>
+        </div>
 
     </div>
 </div>
@@ -428,32 +441,48 @@
 
 
 
+
 <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.2.0
-            </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-        </footer>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+    <div class="float-right d-none d-sm-block">
+        <b>Version</b> 3.2.0
     </div>
-    <!-- ./wrapper -->
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+</footer>
 
-    <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- bs-custom-file-input -->
-    <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js"></script>
-    <!-- Page specific script -->
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- Page specific script -->
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+<script>
+    function generatePDF() {
+        // Choose the element that our invoice is rendered in.
+        const element = document.getElementById('invoice');
+        // Choose the element and save the PDF for our user.
+        html2pdf().from(element).save();
+    }
+</script>
+
+
 
 </div>
 </body>
