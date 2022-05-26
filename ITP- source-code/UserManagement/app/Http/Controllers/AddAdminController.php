@@ -66,8 +66,6 @@ class AddAdminController extends Controller
         $data = Admin::all();
         $data1 = Admin_Privilege::all();
         return view('addAdmin',['admin'=>$data,'data1'=>$data1]);
-        
-        //return view('addAdmin',['data'=>$data]);
     }
 
     public function addData(Request $req)

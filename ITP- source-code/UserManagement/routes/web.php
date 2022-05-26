@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AddPrivilegesController;
 use App\Http\Controllers\AddAdminController;
+use App\Http\Controllers\SearchAdminController;
 
 use App\Models\Admin_Privilege;
 use App\Models\Admin;
@@ -31,9 +32,9 @@ Route::get('/registerAdmin', function () {
     return view('registerAdmin');
 });
 
-Route::get('/searchAdmin', function () {
-    return view('searchAdmin');
-});
+// Route::get('/searchAdmin', function () {
+//     return view('searchAdmin');
+// });
 
 // Route::get('/addAdmin', function () {
 //     return view('addAdmin');
@@ -58,6 +59,10 @@ Route::post('registerAdmin',[AddAdminController::class,'getData']);
 
 Route::get('addAdmin',[AddAdminController::class,'show']);
 Route::post('addAdmin',[AddAdminController::class,'addData']);
+
+Route::get('searchAdmin',[SearchAdminController::class,'show']);
+Route::get('click_delete/{id}',[SearchAdminController::class,'delete']);
+Route::get('/searchAdmin',[SearchAdminController::class,'search'])->name('web.search');
 
 Auth::routes();
 
